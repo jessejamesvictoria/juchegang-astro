@@ -1,0 +1,116 @@
+---
+/**
+ * Home Page - Juche GanG
+ *
+ * Layer 0: Static HTML (this file + static components)
+ * Layer 1: React Islands (PeaceCounter)
+ * Layer 2: Heavy effects (none on homepage currently)
+ *
+ * Architecture: Islands Pattern
+ * - Static content renders as pure HTML
+ * - Interactive components hydrate on idle
+ */
+import Base from '../layouts/Base.astro'
+import Header from '../components/static/Header.astro'
+import Footer from '../components/static/Footer.astro'
+import HeroSection from '../components/static/HeroSection.astro'
+import LawCard from '../components/static/LawCard.astro'
+
+// Layer 1: React Islands (hydrate on idle)
+import PeaceCounter from '../components/islands/PeaceCounter'
+
+// Import laws data
+import { laws } from '../data/laws'
+
+// Get featured laws
+const featuredLaw1 = laws.find(law => law.number === 1) || laws[0]
+const featuredLaw25 = laws.find(law => law.number === 25) || laws[24]
+---
+
+<Base title="The 48 Laws of Excellence">
+  <Header currentPath="/" />
+
+  <main>
+    <!-- Layer 0: Static Hero -->
+    <HeroSection />
+
+    <!-- Layer 1: Peace Counter Island (loads on idle) -->
+    <PeaceCounter client:idle />
+
+    <!-- Layer 0: Featured Laws Section -->
+    <section class="container-app py-16">
+      <div class="featured-laws-section relative">
+        <div class="max-w-4xl mx-auto mb-16 text-center relative z-10">
+          <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-amber-400/20 text-yellow-400 rounded-full text-sm font-medium backdrop-blur-sm border border-yellow-500/30">
+            Featured Excellence
+          </div>
+          <h2 class="text-headline text-[hsl(var(--foreground))] mb-8">
+            Foundation Laws
+          </h2>
+          <p class="text-body-large text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto">
+            These cornerstone principles form the bedrock of personal excellence and will fundamentally transform how you approach life's greatest challenges.
+          </p>
+        </div>
+
+        <!-- Featured Law Cards -->
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto relative z-10">
+          <LawCard law={featuredLaw1} index={0} />
+          <LawCard law={featuredLaw25} index={1} />
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Layer 0: All Laws Grid -->
+    <section id="laws" class="scroll-mt-nav container-app py-16">
+      <div class="max-w-4xl mx-auto mb-12 text-center">
+        <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-gradient-to-r from-blue-600/20 to-blue-500/20 text-blue-400 rounded-full text-sm font-medium border border-blue-500/30 backdrop-blur-sm">
+          Complete Collection
+        </div>
+        <h2 class="text-headline text-[hsl(var(--foreground))] mb-8">
+          The 48 Laws of Excellence
+        </h2>
+        <p class="text-body-large text-[hsl(var(--muted-foreground))] max-w-3xl mx-auto">
+          Principles for Personal and Collective Transformation
+        </p>
+      </div>
+
+      <!-- Laws Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {laws.map((law, index) => (
+          <LawCard law={law} index={index} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Layer 0: Call to Action -->
+    <section class="bg-gradient-to-r from-red-950 via-red-900 to-red-950 py-16">
+      <div class="container-app text-center">
+        <h2 class="text-headline text-white mb-6">
+          Ready to Begin Your Journey?
+        </h2>
+        <p class="text-body-large text-white/70 max-w-2xl mx-auto mb-8">
+          Join thousands who have transformed their lives through the pursuit of excellence.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black font-bold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+          >
+            Get in Touch
+          </a>
+          <a
+            href="/briefings"
+            class="px-8 py-4 border-2 border-white/30 hover:border-white/60 text-white font-semibold rounded-full transition-all duration-300 hover:bg-white/10"
+          >
+            Read Briefings
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>

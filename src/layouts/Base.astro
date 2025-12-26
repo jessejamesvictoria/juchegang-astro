@@ -1,0 +1,69 @@
+---
+/**
+ * Base Layout - Layer 0 (Static HTML)
+ *
+ * Provides the foundational HTML structure with:
+ * - ViewTransitions for smooth page navigation
+ * - Global styles and fonts
+ * - Meta tags and SEO
+ */
+import { ViewTransitions } from 'astro:transitions'
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const {
+  title,
+  description = "The 48 Laws of Excellence - United in Purpose, Unrelenting in Will. Through discipline, courage, and unwavering commitment, we forge the path to excellence."
+} = Astro.props
+
+const siteUrl = "https://juche.org"
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- OG / Social -->
+  <meta property="og:title" content={`${title} | Juche GanG`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+  <meta property="og:url" content={siteUrl} />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${title} | Juche GanG`} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Theme Script (runs before paint to prevent flash) -->
+  <script is:inline>
+    // Check for saved theme preference or system preference
+    const theme = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  </script>
+
+  <title>{title} | Juche GanG</title>
+  <ViewTransitions />
+</head>
+<body class="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] font-sans antialiased">
+  <slot />
+</body>
+</html>

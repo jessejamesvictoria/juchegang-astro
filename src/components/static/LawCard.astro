@@ -1,0 +1,81 @@
+---
+/**
+ * LawCard Component - Layer 0 (Static HTML)
+ *
+ * Displays a single law card. Uses CSS-only interactions.
+ * For expand/collapse, uses <details> element (no JS needed).
+ */
+import type { Law } from '@/types/law'
+
+interface Props {
+  law: Law
+  index?: number
+}
+
+const { law, index = 0 } = Astro.props
+
+// Determine if content is long enough to need expand/collapse
+const isLong = law.content.length > 200
+const truncatedContent = isLong ? law.content.slice(0, 200) + '...' : law.content
+---
+
+<article
+  id={`law-${law.number}`}
+  class="group bg-[hsl(var(--card))] rounded-lg sophisticated-shadow overflow-hidden hover-lift minimal-border transition-all duration-500 h-full flex flex-col animate-slideInUp"
+  style={`animation-delay: ${(index % 6) * 0.1}s`}
+>
+  <!-- Law Header with Number Badge -->
+  <div class="relative h-48 overflow-hidden bg-gradient-to-br from-red-900 via-red-800 to-red-900">
+    <!-- Decorative Pattern -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,215,0,0.3),transparent_50%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(3,77,162,0.3),transparent_50%)]"></div>
+    </div>
+
+    <!-- Number Badge -->
+    <div class="absolute top-3 right-3">
+      <div class="h-10 w-10 flex items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 text-black font-bold text-lg shadow-lg border-2 border-yellow-300/50">
+        {law.number}
+      </div>
+    </div>
+
+    <!-- Title Preview -->
+    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+      <span class="text-xs font-medium text-yellow-400/80 uppercase tracking-wider">Law {law.number}</span>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="p-4 sm:p-5 md:p-6 flex-1 flex flex-col">
+    <h2 class="text-lg sm:text-xl font-semibold mb-3 text-[hsl(var(--card-foreground))] group-hover:text-[hsl(var(--accent))] transition-colors duration-300 line-clamp-2">
+      {law.title}
+    </h2>
+
+    {isLong ? (
+      <details class="flex-1">
+        <summary class="text-sm sm:text-base text-[hsl(var(--muted-foreground))] leading-relaxed cursor-pointer list-none">
+          {truncatedContent}
+          <span class="text-[hsl(var(--accent))] hover:underline ml-1 inline-flex items-center gap-1">
+            Read more
+            <svg class="w-4 h-4 transition-transform details-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <p class="text-sm sm:text-base text-[hsl(var(--muted-foreground))] leading-relaxed mt-2">
+          {law.content}
+        </p>
+      </details>
+    ) : (
+      <p class="text-sm sm:text-base text-[hsl(var(--muted-foreground))] leading-relaxed flex-1">
+        {law.content}
+      </p>
+    )}
+  </div>
+</article>
+
+<style>
+  details[open] summary span svg {
+    transform: rotate(180deg);
+  }
+</style>
