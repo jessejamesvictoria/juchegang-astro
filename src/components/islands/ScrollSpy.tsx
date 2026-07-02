@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const sections = ['bridge', 'heritage', 'network', 'ai', 'process', 'contact']
+const sections = ['manifesto', 'bridge', 'heritage', 'network', 'ai', 'process', 'brand', 'contact']
 
 export function ScrollSpy() {
   useEffect(() => {

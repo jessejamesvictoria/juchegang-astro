@@ -3,17 +3,19 @@ import Base from '../layouts/Base.astro'
 import Header from '../components/static/Header.astro'
 import Footer from '../components/static/Footer.astro'
 import HeroSection from '../components/static/HeroSection.astro'
+import DieCastSection from '../components/static/DieCastSection.astro'
 import BridgeSection from '../components/static/BridgeSection.astro'
 import GallerySection from '../components/static/GallerySection.astro'
 import NetworkSection from '../components/static/NetworkSection.astro'
 import AISection from '../components/static/AISection.astro'
 import ProcessSection from '../components/static/ProcessSection.astro'
+import BrandSection from '../components/static/BrandSection.astro'
 import ContactSection from '../components/static/ContactSection.astro'
 import PeaceCounter from '../components/islands/PeaceCounter'
 import NetworkTicker from '../components/islands/NetworkTicker'
 ---
 
-<Base title="Unity and AI for Korea and Canada">
+<Base title="The die is cast">
   <a href="#main-content" class="sr-only">Skip to content</a>
   <Header />
 
@@ -21,11 +23,13 @@ import NetworkTicker from '../components/islands/NetworkTicker'
     <HeroSection />
     <NetworkTicker client:visible />
     <PeaceCounter client:visible />
+    <DieCastSection />
     <BridgeSection />
     <GallerySection />
     <NetworkSection />
     <AISection />
     <ProcessSection />
+    <BrandSection />
     <ContactSection />
   </main>
 

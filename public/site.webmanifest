@@ -1,11 +1,12 @@
 {
   "name": "JucheGang",
   "short_name": "JucheGang",
-  "description": "Unity and AI for Korea and Canada",
+  "description": "The die is cast. Unity and AI for Korea and Canada.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F4F4F0",
   "theme_color": "#050505",
+  "lang": "en-CA",
   "icons": [
     {
       "src": "/favicon.svg",

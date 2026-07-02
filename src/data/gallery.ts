@@ -36,6 +36,20 @@ export const heritageImages: GalleryImage[] = [
     tag: 'Archive',
   },
   {
+    src: '/images/이순신_난중일기_및_서간첩_임진장초.PNG',
+    alt: 'Yi Sun-sin war diary manuscript excerpt',
+    caption: 'Nanjung Ilgi manuscript',
+    captionKo: '이순신 난중일기',
+    tag: 'Archive',
+  },
+  {
+    src: '/images/총무공_장검.png',
+    alt: 'Chong Mugong ceremonial sword illustration',
+    caption: 'Chong Mugong sword',
+    captionKo: '총무공 장검',
+    tag: 'Heritage',
+  },
+  {
     src: '/images/northof38.jpg',
     alt: 'Landscape north of the 38th parallel on the Korean peninsula',
     caption: 'North of 38',
@@ -55,6 +69,20 @@ export const heritageImages: GalleryImage[] = [
     caption: 'Paektu falls',
     captionKo: '백두 폭포',
     tag: 'Peninsula',
+  },
+  {
+    src: '/images/bearswimminginpeaktu08.jpg',
+    alt: 'Bear swimming in Paektu region waters',
+    caption: 'Paektu wildlife',
+    captionKo: '백두 생태',
+    tag: 'Peninsula',
+  },
+  {
+    src: '/images/PXL_20250313_175135897.jpg',
+    alt: 'Pacific corridor field photograph March 2025',
+    caption: 'Field study',
+    captionKo: '현장 기록',
+    tag: 'Corridor',
   },
   {
     src: '/images/korean03.jpg',
