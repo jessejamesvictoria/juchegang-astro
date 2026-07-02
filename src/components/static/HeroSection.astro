@@ -1,69 +1,55 @@
 ---
-/**
- * HeroSection Component - Layer 0 (Static HTML)
- *
- * Main hero section with gradient background and call to action.
- * Uses CSS animations, no JavaScript needed.
- */
+import { stats } from '../../data/network'
 ---
 
-<section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-  <!-- Background Gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-red-950 via-red-900 to-red-950">
-    <!-- Decorative Orbs -->
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-3xl"></div>
-  </div>
+<section class="border-b-2 border-[var(--ink)]">
+  <div class="container-app">
+    <div class="grid lg:grid-cols-12 gap-0 border-x-2 border-[var(--ink)]">
+      <div class="lg:col-span-7 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] min-h-[min(100dvh,var(--nav-h)+520px)] flex flex-col justify-between reveal">
+        <div>
+          <p class="font-mono-ui text-[var(--hazard)] mb-6">Rev 3.0 / Unit KC-01 / Pacific Corridor</p>
+          <h1 class="text-mega text-[var(--ink)]">
+            Juche<br /><span class="text-[var(--hazard)]">Gang</span>
+          </h1>
+          <p class="font-ko text-base text-[var(--muted)] mt-6 max-w-md">한국과 캐나다를 잇는 통일과 인공지능</p>
+        </div>
 
-  <!-- Content -->
-  <div class="relative z-10 container-app text-center py-20">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-yellow-400/20 border border-yellow-500/30 rounded-full animate-staggered-fade-in">
-      <span class="text-yellow-400 text-sm font-medium">Excellence Through Discipline</span>
-    </div>
-
-    <!-- Main Title -->
-    <h1 class="text-display text-white mb-6 animate-staggered-fade-in stagger-delay-1">
-      <span class="bg-gradient-to-r from-red-400 via-yellow-300 to-red-400 bg-clip-text text-transparent">
-        Juche GanG
-      </span>
-    </h1>
-
-    <!-- Subtitle -->
-    <p class="text-headline text-white/90 mb-4 animate-staggered-fade-in stagger-delay-2">
-      United in Purpose, Unrelenting in Will
-    </p>
-
-    <!-- Description -->
-    <p class="text-body-large text-white/70 max-w-2xl mx-auto mb-10 animate-staggered-fade-in stagger-delay-3">
-      Through discipline, courage, and unwavering commitment, we forge the path to excellence and global transformation
-    </p>
-
-    <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-staggered-fade-in stagger-delay-4">
-      <a
-        href="#laws"
-        class="px-8 py-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-500 text-black font-bold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/50"
-      >
-        Explore the Laws
-      </a>
-      <a
-        href="/mission"
-        class="px-8 py-4 border-2 border-white/30 hover:border-white/60 text-white font-semibold rounded-full transition-all duration-300 hover:bg-white/10"
-      >
-        About the System
-      </a>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-      <div class="flex flex-col items-center text-white/50">
-        <span class="text-xs uppercase tracking-widest mb-2">Scroll</span>
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+        <div class="mt-10 lg:mt-0">
+          <p class="text-base max-w-lg leading-relaxed bilingual">
+            Bridging Korean diaspora communities in Canada with strategic intelligence, civic infrastructure, and AI-orchestrated collaboration.
+            <span class="ko block">캐나다 한인 디아스포라와 전략 인텔리전스, 시민 인프라, AI 협업을 태평양 회랑에서 연결합니다.</span>
+          </p>
+          <div class="flex flex-col sm:flex-row gap-0 mt-8 border-2 border-[var(--ink)] w-fit">
+            <a href="#network" class="btn-primary border-0">Network</a>
+            <a href="https://juchegang.ca/the-current" class="btn-hazard border-0 border-l-2 border-[var(--ink)]">The Current</a>
+          </div>
+        </div>
       </div>
+
+      <div class="lg:col-span-5 relative min-h-[280px] lg:min-h-0 halftone-img reveal">
+        <img
+          src="/images/hero-pacific-corridor.jpg"
+          alt="Pacific corridor blueprint connecting Korea and Canada"
+          width="800"
+          height="600"
+          loading="eager"
+          fetchpriority="high"
+          class="absolute inset-0 w-full h-full"
+        />
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-[var(--paper)] border-t-2 border-[var(--ink)]">
+          <p class="font-mono-ui text-[var(--muted)]">Fig. 01 / Pacific Corridor / KC Division</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blueprint-grid grid-cols-2 md:grid-cols-4 border-x-2 border-b-2 border-[var(--ink)] reveal">
+      {stats.map(stat => (
+        <div class="cell text-center">
+          <data value={stat.value} class="stat-num block text-[var(--ink)]">{stat.value}</data>
+          <p class="font-mono-ui mt-2 text-[var(--ink)]">{stat.label}</p>
+          <p class="font-ko text-xs text-[var(--muted)] mt-1">{stat.labelKo}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

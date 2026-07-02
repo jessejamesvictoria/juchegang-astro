@@ -1,0 +1,37 @@
+---
+import ContactForm from '../islands/ContactForm'
+---
+
+<section id="contact" class="border-b-2 border-[var(--ink)]">
+  <div class="container-app">
+    <div class="grid lg:grid-cols-2 border-x-2 border-[var(--ink)]">
+      <div class="cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+        <h2 class="text-section mb-8">Contact</h2>
+        <p class="font-ko text-sm text-[var(--muted)] mb-10">연락하기</p>
+
+        <dl class="space-y-6">
+          <div>
+            <dt class="font-mono-ui text-[var(--muted)] mb-2">Email</dt>
+            <dd><a href="mailto:panda@juche.org" class="text-[var(--ink)] no-underline hover:text-[var(--hazard)]">panda@juche.org</a></dd>
+          </div>
+          <div>
+            <dt class="font-mono-ui text-[var(--muted)] mb-2">Phone</dt>
+            <dd><a href="tel:+12504155678" class="text-[var(--ink)] no-underline hover:text-[var(--hazard)]">+1 (250) 415-5678</a></dd>
+          </div>
+          <div>
+            <dt class="font-mono-ui text-[var(--muted)] mb-2">Location</dt>
+            <dd class="text-sm">Victoria, BC, Canada</dd>
+          </div>
+          <div>
+            <dt class="font-mono-ui text-[var(--muted)] mb-2">Telegram</dt>
+            <dd><a href="https://t.me/tigerrising" target="_blank" rel="noopener noreferrer" class="text-[var(--ink)] no-underline hover:text-[var(--hazard)]">@tigerrising</a></dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="cell reveal">
+        <ContactForm client:load />
+      </div>
+    </div>
+  </div>
+</section>

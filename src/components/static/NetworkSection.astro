@@ -1,0 +1,36 @@
+---
+import { networkSites } from '../../data/network'
+---
+
+<section id="network" class="border-b-2 border-[var(--ink)] bg-[var(--paper)]">
+  <div class="container-app">
+    <div class="border-x-2 border-[var(--ink)]">
+      <div class="cell border-b-2 border-[var(--ink)] reveal">
+        <h2 class="text-macro">JPanda Network</h2>
+        <p class="font-ko text-sm text-[var(--muted)] mt-3">제이판다 네트워크</p>
+        <p class="text-sm max-w-2xl mt-6 leading-relaxed bilingual">
+          Research, civic intelligence, strategic analysis, and AI infrastructure. Each property serves a distinct mission within one unified vision.
+          <span class="ko block">연구, 시민 인텔리전스, 전략 분석, AI 인프라. 통합된 비전 안의 고유한 사명.</span>
+        </p>
+      </div>
+
+      <div class="blueprint-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 reveal">
+        {networkSites.map(site => (
+          <a
+            href={site.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="network-link cell"
+          >
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <code class="font-mono-ui text-[var(--ink)] text-[0.65rem]">{site.name}</code>
+              {site.tag && <span class="tag-hazard">{site.tag}</span>}
+            </div>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">{site.description}</p>
+            <span class="link-arrow font-mono-ui text-[var(--muted)] mt-4 inline-block transition-colors">Visit &gt;&gt;&gt;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

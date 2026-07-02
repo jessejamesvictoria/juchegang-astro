@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/static/Header.astro'
+import Footer from '../components/static/Footer.astro'
+---
+
+<Base title="Page Not Found">
+  <Header />
+  <main id="main-content" class="min-h-[60dvh] flex items-center">
+    <div class="container-app w-full">
+      <div class="border-2 border-[var(--ink)] cell max-w-xl reveal visible">
+        <p class="font-mono-ui text-[var(--hazard)] mb-4">Error 404</p>
+        <h1 class="text-macro mb-6">Not Found</h1>
+        <p class="text-sm text-[var(--muted)] mb-8">The requested route does not exist in this network node.</p>
+        <a href="/" class="btn-primary">Return Home</a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>

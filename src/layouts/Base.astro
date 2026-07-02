@@ -1,69 +1,70 @@
 ---
-/**
- * Base Layout - Layer 0 (Static HTML)
- *
- * Provides the foundational HTML structure with:
- * - ViewTransitions for smooth page navigation
- * - Global styles and fonts
- * - Meta tags and SEO
- */
 import { ViewTransitions } from 'astro:transitions'
 import '../styles/global.css'
 
 interface Props {
   title: string
   description?: string
+  ogImage?: string
 }
 
 const {
   title,
-  description = "The 48 Laws of Excellence - United in Purpose, Unrelenting in Will. Through discipline, courage, and unwavering commitment, we forge the path to excellence."
+  description = 'Unity and AI for Korea and Canada. JPanda Network connecting diaspora communities, strategic intelligence, and sovereign technology across the Pacific corridor.',
+  ogImage = '/images/hero-pacific-corridor.jpg',
 } = Astro.props
 
-const siteUrl = "https://juche.org"
+const siteUrl = 'https://juchegang.ca'
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
+  <meta name="theme-color" content="#050505" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/brand/icon-192.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- OG / Social -->
-  <meta property="og:title" content={`${title} | Juche GanG`} />
+  <meta property="og:title" content={`${title} | JucheGang`} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
   <meta property="og:url" content={siteUrl} />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${title} | Juche GanG`} />
+  <meta name="twitter:title" content={`${title} | JucheGang`} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- Theme Script (runs before paint to prevent flash) -->
-  <script is:inline>
-    // Check for saved theme preference or system preference
-    const theme = localStorage.getItem('theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-  </script>
-
-  <title>{title} | Juche GanG</title>
+  <title>{title} | JucheGang</title>
   <ViewTransitions />
 </head>
-<body class="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] font-sans antialiased">
+<body>
+  <div class="noise-overlay" aria-hidden="true"></div>
   <slot />
+
+  <script>
+    function initReveal() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible')
+          })
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+      )
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+    }
+    initReveal()
+    document.addEventListener('astro:page-load', initReveal)
+  </script>
 </body>
 </html>
