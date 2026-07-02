@@ -1,5 +1,6 @@
 ---
 import { unityThesis, yiSunSin, currentPanels, currentResources } from '../../data/current'
+import SectionEyebrow from './SectionEyebrow.astro'
 ---
 
 <section id="current" class="border-b-2 border-[var(--ink)]">
@@ -12,7 +13,7 @@ import { unityThesis, yiSunSin, currentPanels, currentResources } from '../../da
       <!-- Unity thesis -->
       <div class="grid lg:grid-cols-2 xl:grid-cols-12 border-b-2 border-[var(--ink)]">
         <div class="lg:col-span-1 xl:col-span-7 cell min-w-0 border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
-          <samp class="font-mono-ui text-[var(--hazard)] block mb-4">The Current · 주체강 · OR-7394</samp>
+          <SectionEyebrow label="The Current" labelKo="주체강" code="OR-7394" />
           <h2 class="text-macro frame-bracket text-balance">{unityThesis.headline}</h2>
           <p class="font-ko text-sm text-[var(--muted)] mt-3">{unityThesis.headlineKo}</p>
         </div>

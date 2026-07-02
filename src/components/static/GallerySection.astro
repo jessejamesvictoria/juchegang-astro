@@ -1,5 +1,6 @@
 ---
 import { heritageImages } from '../../data/gallery'
+import SectionEyebrow from './SectionEyebrow.astro'
 
 const featured = heritageImages.slice(0, 2)
 const grid = heritageImages.slice(2)
@@ -11,6 +12,7 @@ const grid = heritageImages.slice(2)
     <div class="border-x-2 border-[var(--ink)]">
       <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)]">
         <div class="lg:col-span-7 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+          <SectionEyebrow label="Heritage archive" labelKo="유산 기록" code="ARC-15" />
           <h2 class="text-macro frame-bracket text-balance">One peninsula, one lineage</h2>
           <p class="font-ko text-sm text-[var(--muted)] mt-3">하나의 반도, 하나의 혈통</p>
         </div>

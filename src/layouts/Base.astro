@@ -69,15 +69,21 @@ const ogImageUrl = `${siteUrl}${ogImage}`
 
   <script>
     function initReveal() {
+      const seen = new WeakSet()
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add('visible')
+            if (!entry.isIntersecting || seen.has(entry.target)) return
+            seen.add(entry.target)
+            entry.target.classList.add('visible')
           })
         },
-        { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+        { threshold: 0.06, rootMargin: '0px 0px -8% 0px' }
       )
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+      document.querySelectorAll('.reveal').forEach((el) => {
+        el.classList.remove('visible')
+        observer.observe(el)
+      })
     }
     initReveal()
     document.addEventListener('astro:page-load', initReveal)

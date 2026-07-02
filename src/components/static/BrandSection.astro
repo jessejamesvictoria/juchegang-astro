@@ -1,4 +1,5 @@
 ---
+import SectionEyebrow from './SectionEyebrow.astro'
 ---
 
 <section id="brand" class="border-b-2 border-[var(--ink)]">
@@ -6,6 +7,7 @@
     <div class="border-x-2 border-[var(--ink)]">
       <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)]">
         <div class="lg:col-span-7 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+          <SectionEyebrow label="Brand system" labelKo="브랜드 시스템" code="BRD-01" />
           <h2 class="text-section frame-angle">Brand kit</h2>
           <p class="font-ko text-sm text-[var(--muted)] mt-3">브랜드 키트</p>
         </div>
@@ -17,15 +19,17 @@
         </div>
       </div>
 
-      <figure class="reveal reveal-delay-2 border-b-2 border-[var(--ink)]">
-        <img
-          src="/brand/brand-kit-board.jpg"
-          alt="JucheGang brand guidelines board showing logo, colors, typography, and the die is cast tagline"
-          width="1600"
-          height="1200"
-          loading="lazy"
-          class="w-full h-auto block"
-        />
+      <figure class="reveal reveal-delay-2 border-b-2 border-[var(--ink)] frame-nested">
+        <div class="frame-nested-inner halftone-img">
+          <img
+            src="/brand/brand-kit-board.jpg"
+            alt="JucheGang brand guidelines board showing logo, colors, typography, and the die is cast tagline"
+            width="1600"
+            height="1200"
+            loading="lazy"
+            class="w-full h-auto block halftone-contain"
+          />
+        </div>
         <figcaption class="cell py-3 border-t-2 border-[var(--ink)] flex flex-wrap gap-6">
           <span class="font-mono-ui text-[0.6rem]">Paper #F4F4F0</span>
           <span class="font-mono-ui text-[0.6rem]">Ink #050505</span>

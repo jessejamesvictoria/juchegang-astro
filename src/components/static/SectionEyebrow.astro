@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string
+  labelKo?: string
+  code?: string
+}
+
+const { label, labelKo, code } = Astro.props
+---
+
+<div class="section-eyebrow">
+  <samp class="eyebrow-tag">{label}</samp>
+  {labelKo && <span class="font-ko text-xs text-[var(--muted)]">{labelKo}</span>}
+  {code && <span class="font-mono-ui text-[var(--muted)] ml-auto hidden sm:inline">{code}</span>}
+</div>

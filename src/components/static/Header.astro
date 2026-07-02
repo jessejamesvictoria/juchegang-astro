@@ -17,8 +17,8 @@ const navItems = [
   <div class="barcode-strip" aria-hidden="true"></div>
   <div class="container-app">
     <div class="flex items-stretch justify-between min-h-[var(--nav-h)] border-x-2 border-[var(--ink)]">
-      <a href="/" class="flex items-center gap-3 no-underline text-inherit py-3 px-4 border-r-2 border-[var(--ink)]" aria-label="JucheGang home">
-        <img src="/brand/mark.svg" alt="" width="32" height="32" aria-hidden="true" />
+      <a href="/" class="flex items-center gap-3 no-underline text-inherit py-3 px-4 border-r-2 border-[var(--ink)] group" aria-label="JucheGang home">
+        <img src="/brand/mark.svg" alt="" width="32" height="32" aria-hidden="true" class="transition-transform duration-500" style="transition-timing-function: var(--ease-premium)" />
         <span class="font-macro text-sm hidden sm:inline">JucheGang</span>
         <span class="structural-mark hidden md:inline" aria-hidden="true">®</span>
       </a>
@@ -28,13 +28,14 @@ const navItems = [
           <a
             href={item.href}
             data-nav-section={item.section}
-            class="font-mono-ui flex items-center px-5 no-underline border-l-2 border-[var(--ink)] text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)]"
+            class="nav-link font-mono-ui flex items-center px-5 no-underline border-l-2 border-[var(--ink)] text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)]"
           >
             {item.label}
           </a>
         ))}
-        <a href="#contact" class="font-mono-ui flex items-center px-6 bg-[var(--hazard)] text-[var(--paper)] no-underline border-l-2 border-[var(--ink)] hover:bg-[var(--ink)]">
-          Connect &gt;&gt;&gt;
+        <a href="#contact" class="btn-group border-l-2 border-[var(--ink)]">
+          <span class="font-mono-ui flex items-center px-5 bg-[var(--hazard)] text-[var(--paper)]">Connect</span>
+          <span class="btn-icon-box bg-[var(--hazard)] text-[var(--paper)] border-l-[var(--ink)]" aria-hidden="true">&gt;&gt;&gt;</span>
         </a>
       </nav>
 
@@ -59,7 +60,10 @@ const navItems = [
             ))}
           </ul>
           <div class="p-6 border-t-2 border-[var(--ink)]">
-            <a href="#contact" class="btn-primary w-full text-center">Connect &gt;&gt;&gt;</a>
+            <a href="#contact" class="btn-group w-full">
+              <span class="btn-primary flex-1 text-center border-0">Connect</span>
+              <span class="btn-icon-box" aria-hidden="true">&gt;&gt;&gt;</span>
+            </a>
           </div>
         </nav>
       </details>

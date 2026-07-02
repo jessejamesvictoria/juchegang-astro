@@ -1,5 +1,6 @@
 ---
 import { dieCast } from '../../data/manifesto'
+import SectionEyebrow from './SectionEyebrow.astro'
 ---
 
 <section id="manifesto" class="border-b-2 border-[var(--ink)]">
@@ -10,7 +11,7 @@ import { dieCast } from '../../data/manifesto'
       <span class="registration-mark br" aria-hidden="true"></span>
 
       <div class="lg:col-span-5 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
-        <samp class="font-mono-ui text-[var(--hazard)] block mb-4">{dieCast.date} / Rubicon</samp>
+        <SectionEyebrow label={`${dieCast.date} / Rubicon`} labelKo="루비콘" code="MAN-01" />
         <h2 class="text-macro text-balance frame-bracket">{dieCast.english}</h2>
         <p class="font-macro text-xl text-[var(--hazard)] mt-4">{dieCast.latin}</p>
         <p class="font-ko text-lg text-[var(--ink)] mt-3">{dieCast.korean}</p>
