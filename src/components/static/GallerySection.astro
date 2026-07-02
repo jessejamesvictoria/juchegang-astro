@@ -1,0 +1,68 @@
+---
+import { heritageImages } from '../../data/gallery'
+
+const featured = heritageImages.slice(0, 2)
+const grid = heritageImages.slice(2)
+---
+
+<section id="heritage" class="border-b-2 border-[var(--ink)]">
+  <div class="hazard-stripe" aria-hidden="true"></div>
+  <div class="container-app">
+    <div class="border-x-2 border-[var(--ink)]">
+      <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)]">
+        <div class="lg:col-span-7 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+          <h2 class="text-macro frame-bracket text-balance">One peninsula, one lineage</h2>
+          <p class="font-ko text-sm text-[var(--muted)] mt-3">하나의 반도, 하나의 혈통</p>
+        </div>
+        <div class="lg:col-span-5 cell flex items-end reveal reveal-delay-1">
+          <p class="text-sm text-body bilingual text-pretty">
+            Sacred peaks, archival documents, and Pacific gateway cities. Sourced imagery from the Korean peninsula and the Canadian corridor.
+            <span class="ko block">성산, 기록 문서, 태평양 관문 도시. 반도와 회랑에서 온 출처 있는 이미지.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)] reveal reveal-delay-2">
+        {featured.map((img, i) => (
+          <figure class:list={[
+            'relative halftone-img min-h-[280px] lg:min-h-[360px]',
+            i === 0 ? 'lg:col-span-7 border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)]' : 'lg:col-span-5',
+          ]}>
+            <img
+              src={img.src}
+              alt={img.alt}
+              width="800"
+              height="600"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full"
+            />
+            <figcaption class="absolute bottom-0 left-0 right-0 cell py-3 bg-[var(--paper)] border-t-2 border-[var(--ink)]">
+              <samp class="tag-hazard mr-3">{img.tag}</samp>
+              <span class="font-mono-ui text-[0.65rem]">{img.caption}</span>
+              {img.captionKo && <span class="font-ko text-xs text-[var(--muted)] ml-2">{img.captionKo}</span>}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div class="blueprint-grid grid-cols-2 md:grid-cols-3 reveal reveal-delay-3">
+        {grid.map(img => (
+          <figure class="relative halftone-img min-h-[200px] md:min-h-[240px]">
+            <img
+              src={img.src}
+              alt={img.alt}
+              width="600"
+              height="450"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full"
+            />
+            <figcaption class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-[var(--paper)] border-t border-[var(--ink)]">
+              <samp class="tag-ink text-[0.55rem]">{img.tag}</samp>
+              <p class="font-mono-ui text-[0.6rem] mt-1">{img.caption}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
