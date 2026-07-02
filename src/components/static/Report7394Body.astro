@@ -1,0 +1,169 @@
+---
+import {
+  report7394Meta,
+  report7394Intro,
+  report7394Sections,
+  report7394Conclusion,
+} from '../../data/report7394'
+---
+
+<article class="report-7394">
+  <!-- Header -->
+  <section class="border-b-2 border-[var(--ink)] blueprint-canvas relative">
+    <div class="hazard-stripe" aria-hidden="true"></div>
+    <div class="container-app">
+      <div class="border-x-2 border-[var(--ink)] cell reveal relative">
+        <span class="registration-mark tl" aria-hidden="true"></span>
+        <span class="registration-mark br" aria-hidden="true"></span>
+
+        <div class="telemetry-row mb-5">
+          <span><strong>+</strong> Observation Report {report7394Meta.id}</span>
+          <span>{report7394Meta.classification}</span>
+          <span>OR-7394</span>
+        </div>
+
+        <h1 class="text-macro frame-bracket text-balance max-w-4xl">{report7394Meta.title}</h1>
+        <p class="text-sm text-body text-pretty mt-6 max-w-3xl">{report7394Meta.subtitle}</p>
+        <p class="font-ko text-sm text-[var(--muted)] mt-2">{report7394Meta.subtitleKo}</p>
+
+        <div class="flex flex-wrap gap-x-6 gap-y-2 mt-8 pt-6 border-t-2 border-[var(--ink)]">
+          <span class="font-mono-ui text-[0.6rem]">By {report7394Meta.author}</span>
+          <span class="font-mono-ui text-[0.6rem] text-[var(--muted)]">·</span>
+          <span class="font-mono-ui text-[0.6rem]">{report7394Meta.publisher}</span>
+          <span class="font-mono-ui text-[0.6rem] text-[var(--muted)]">·</span>
+          <span class="font-mono-ui text-[0.6rem] text-[var(--hazard)]">{report7394Meta.year}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table of contents -->
+  <section class="border-b-2 border-[var(--ink)]">
+    <div class="container-app">
+      <div class="border-x-2 border-[var(--ink)]">
+        <div class="compartment-header">
+          <samp class="font-mono-ui text-[var(--hazard)]">Table of Contents · 목차</samp>
+        </div>
+        <nav aria-label="Report sections" class="blueprint-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 reveal">
+          {report7394Sections.map(section => (
+            <a href={`#${section.id}`} class="network-link cell min-h-[100px]">
+              <samp class="tag-hazard text-[0.55rem]">{section.roman}</samp>
+              <p class="font-mono-ui text-[0.6rem] mt-2 leading-snug">{section.title}</p>
+              <p class="font-ko text-xs text-[var(--muted)] mt-1">{section.titleKo}</p>
+            </a>
+          ))}
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section id="introduction" class="border-b-2 border-[var(--ink)]">
+    <div class="container-app">
+      <div class="border-x-2 border-[var(--ink)]">
+        <div class="compartment-header">
+          <samp class="font-mono-ui text-[var(--hazard)]">Preface · 서문</samp>
+        </div>
+        <div class="cell reveal">
+          <div class="report-prose max-w-3xl">
+            {report7394Intro.map((para, i) => (
+              <p class:list={['text-sm text-body text-pretty', i > 0 && 'mt-5']}>{para}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sections -->
+  {report7394Sections.map(section => (
+    <section id={section.id} class="border-b-2 border-[var(--ink)] scroll-mt-[var(--header-h)]">
+      <div class="container-app">
+        <div class="border-x-2 border-[var(--ink)]">
+          <div class="compartment-header">
+            <samp class="font-mono-ui text-[var(--hazard)]">
+              Section {section.roman} · {section.titleKo}
+            </samp>
+          </div>
+
+          <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)]">
+            <div class="lg:col-span-4 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+              <h2 class="text-section frame-bracket">{section.title}</h2>
+              <p class="font-ko text-sm text-[var(--muted)] mt-2">{section.titleKo}</p>
+              {section.highlight && (
+                <blockquote class="mt-6 border-l-4 border-[var(--hazard)] pl-4">
+                  <p class="text-xs font-medium text-[var(--hazard)] text-pretty">{section.highlight}</p>
+                </blockquote>
+              )}
+            </div>
+
+            <div class="lg:col-span-8 cell reveal reveal-delay-1">
+              <div class="report-prose">
+                {section.paragraphs.map((para, i) => (
+                  <p class:list={['text-sm text-body text-pretty', i > 0 && 'mt-5']}>{para}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {section.table && (
+            <div class="border-b-2 border-[var(--ink)] reveal reveal-delay-2">
+              <div class="compartment-header border-t-2 border-[var(--ink)]">
+                <samp class="font-mono-ui text-[var(--hazard)]">Data table · {section.roman}</samp>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="report-table w-full">
+                  <thead>
+                    <tr>
+                      {section.table.headers.map(header => (
+                        <th class="font-mono-ui text-[0.6rem] text-left">{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.table.rows.map(row => (
+                      <tr>
+                        {row.map((cell, ci) => (
+                          <td class:list={[ci === 0 && 'font-mono-ui text-[0.65rem]', 'text-xs leading-relaxed']}>
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {section.stats && (
+            <div class="blueprint-grid grid-cols-2 md:grid-cols-4 reveal reveal-delay-2">
+              {section.stats.map(stat => (
+                <div class="cell">
+                  <data value={stat.value} class="stat-num block text-[var(--ink)] text-2xl">{stat.value}</data>
+                  <p class="font-mono-ui mt-2 text-[0.6rem]">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Conclusion -->
+  <section class="border-b-2 border-[var(--ink)]">
+    <div class="hazard-stripe" aria-hidden="true"></div>
+    <div class="container-app">
+      <div class="border-x-2 border-[var(--ink)] cell reveal text-center">
+        <p class="font-mono-ui text-[var(--hazard)] text-lg">{report7394Conclusion.closing}</p>
+        <p class="font-mono-ui text-[var(--muted)] text-[0.65rem] mt-4">{report7394Conclusion.publisher}</p>
+        <p class="font-ko text-base text-[var(--ink)] mt-8 font-medium">{report7394Conclusion.unityKo}</p>
+        <div class="flex flex-wrap justify-center gap-0 mt-10 border-2 border-[var(--ink)] w-fit mx-auto">
+          <a href="/the-current" class="btn-primary border-0">The Current &gt;&gt;&gt;</a>
+          <a href="/" class="btn-hazard border-0 border-l-2 border-[var(--ink)]">Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>

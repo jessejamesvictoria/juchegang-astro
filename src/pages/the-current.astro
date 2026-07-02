@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/static/Header.astro'
+import Footer from '../components/static/Footer.astro'
+import CurrentSection from '../components/static/CurrentSection.astro'
+import { unityThesis, yiSunSin, currentPanels } from '../data/current'
+---
+
+<Base
+  title="The Current"
+  description="Navigate the current. Korean unity regardless of the line. Chokepoint memory, alliance arithmetic, and the Yi Sun-sin inheritance. 주체강 · 어느 쪽에 서 있든 하나의 민족."
+>
+  <a href="#main-content" class="sr-only">Skip to content</a>
+  <Header />
+
+  <main id="main-content">
+    <section class="border-b-2 border-[var(--ink)] blueprint-canvas relative">
+      <div class="hazard-stripe" aria-hidden="true"></div>
+      <div class="container-app">
+        <div class="border-x-2 border-[var(--ink)] cell reveal">
+          <div class="telemetry-row mb-5">
+            <span><strong>+</strong> Navigate the Current</span>
+            <span>주체강</span>
+            <span>KC-02</span>
+          </div>
+          <h1 class="text-macro frame-bracket text-balance">The Current</h1>
+          <p class="font-ko text-base text-[var(--muted)] mt-3">{unityThesis.headlineKo}</p>
+          <p class="text-sm text-body bilingual text-pretty mt-6 max-w-3xl">
+            {unityThesis.subhead}
+            <span class="ko block">{unityThesis.subheadKo}</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <CurrentSection />
+
+    <section class="border-b-2 border-[var(--ink)]">
+      <div class="container-app">
+        <div class="border-x-2 border-[var(--ink)]">
+          <div class="compartment-header">
+            <samp class="font-mono-ui text-[var(--hazard)]">Historical record · Gilbert · Education About Asia</samp>
+          </div>
+          <div class="grid lg:grid-cols-2">
+            <div class="cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+              <h2 class="text-section mb-4">Imjin Wars · 1592–1598</h2>
+              <p class="text-sm text-body text-pretty">
+                Toyotomi Hideyoshi launched one of the most destructive assaults Korea has ever experienced — over 150,000 men with thousands of muskets. Four years of war left ninety percent of Koreans homeless. Yi Sun-sin was not caught unawares: he had studied Japanese naval doctrine and built tactics around Korean strengths — speed, multi-cannon armament, and the Turtle Ship's firepower.
+              </p>
+              <p class="font-ko text-xs text-[var(--muted)] mt-4">
+                도요토미 히데요시의 침략은 한국 역사상 가장 파괴적인 전쟁 중 하나였습니다. 이순신은 일본 해군 전술을 연구하고 한국의 강점 — 속도, 다연장 화포, 거북선 — 으로 대응했습니다.
+              </p>
+            </div>
+            <div class="cell reveal reveal-delay-1">
+              <h2 class="text-section mb-4">Shared inheritance</h2>
+              <p class="text-sm text-body text-pretty">
+                {yiSunSin.unity} His innovations in Asian naval warfare were later adopted by Japan itself — contributing to their triumph in the Russo-Japanese War. Yet his humanity matters as much as his genius: he never lost sight of the victims, bore wounds without demoralizing his troops, and faced death with thoughts only for his men and his state.
+              </p>
+              <p class="font-ko text-xs text-[var(--muted)] mt-4">{yiSunSin.unityKo}</p>
+              <div class="flex flex-col sm:flex-row gap-0 mt-6 border-2 border-[var(--ink)] w-fit">
+                <a href="/report-7394-k" class="btn-primary border-0">Report 7394-K &gt;&gt;&gt;</a>
+                <a href="/" class="btn-hazard border-0 border-l-2 border-[var(--ink)]">Home</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="blueprint-grid grid-cols-1 md:grid-cols-3 border-t-2 border-[var(--ink)] reveal reveal-delay-2">
+            {currentPanels.map(panel => (
+              <div class="cell">
+                <samp class="tag-hazard mb-2">{panel.hanja}</samp>
+                <h3 class="font-macro text-lg">{panel.title}</h3>
+                <p class="font-ko text-xs text-[var(--muted)] mt-1">{panel.titleKo}</p>
+                <p class="text-xs text-[var(--muted)] mt-3 leading-relaxed">{panel.lead}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>

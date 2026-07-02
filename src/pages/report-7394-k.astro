@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/static/Header.astro'
+import Footer from '../components/static/Footer.astro'
+import Report7394Body from '../components/static/Report7394Body.astro'
+import { report7394Meta } from '../data/report7394'
+---
+
+<Base
+  title={`Observation Report ${report7394Meta.id}`}
+  description="The Paradox of the Korean Peninsula and the Resilience of a Divided Civilization. Five thousand years of continuity, cartographic trauma, and adaptive radiation on both sides of the line. By Jesse James · JucheGanG.ca 2026."
+>
+  <a href="#main-content" class="sr-only">Skip to content</a>
+  <Header />
+
+  <main id="main-content">
+    <Report7394Body />
+  </main>
+
+  <Footer />
+</Base>

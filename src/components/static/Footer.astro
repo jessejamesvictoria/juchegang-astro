@@ -1,5 +1,6 @@
 ---
 import { networkSites } from '../../data/network'
+import FooterHonor from './FooterHonor.astro'
 
 const year = new Date().getFullYear()
 const links = networkSites.slice(0, 8)
@@ -17,10 +18,10 @@ const links = networkSites.slice(0, 8)
           <span class="structural-mark" aria-hidden="true">®</span>
         </div>
         <p class="text-xs text-[var(--muted)] leading-relaxed text-body">
-          The die is cast. Unity and AI for Korea and Canada. JPanda Network.
+          The die is cast. One people — regardless of the line. Unity and AI for Korea and Canada. JPanda Network.
         </p>
         <p class="font-ko text-xs text-[var(--muted)] mt-2">주사위는 던져졌다</p>
-        <p class="font-ko text-xs text-[var(--muted)] mt-3">한국과 캐나다를 잇는 통일과 인공지능</p>
+        <p class="font-ko text-xs text-[var(--muted)] mt-3">어느 쪽에 서 있든 하나의 민족 · 한국과 캐나다</p>
       </div>
 
       <div class="md:col-span-4 cell border-b-2 md:border-b-0 md:border-r-2 border-[var(--ink)]">
@@ -46,9 +47,14 @@ const links = networkSites.slice(0, 8)
       </div>
     </div>
 
+    <FooterHonor />
+
     <div class="border-x-2 border-b-2 border-[var(--ink)] cell flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
       <p class="font-mono-ui text-[var(--muted)] text-[0.6rem]">&copy; {year} JucheGang / JPanda Network</p>
       <nav aria-label="Legal" class="flex flex-wrap gap-4">
+        <a href="/the-current" class="link-text">The Current</a>
+        <a href="/report-7394-k" class="link-text">Report 7394-K</a>
+        <a href="/arithmetic" class="link-text">Arithmetic</a>
         <a href="/privacy" class="link-text">Privacy</a>
         <a href="/terms" class="link-text">Terms</a>
       </nav>

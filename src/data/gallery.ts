@@ -24,22 +24,22 @@ export const heritageImages: GalleryImage[] = [
   {
     src: '/images/TurtleShip1795.jpg',
     alt: 'Historical Korean turtle ship illustration from 1795',
-    caption: 'Turtle ship, 1795',
-    captionKo: '거북선',
+    caption: 'Geobukseon · speed & firepower',
+    captionKo: '거북선 · 속도와 화력',
     tag: 'Heritage',
   },
   {
     src: '/images/1597_petition_from_Yi_Wonik_protesting_the_removal_of_Admiral_Yi_Sun-sin_from_command.jpg',
     alt: '1597 petition from Yi Wonik protesting the removal of Admiral Yi Sun-sin',
-    caption: 'Yi Sun-sin petition, 1597',
-    captionKo: '이순신 관련 문서',
+    caption: 'Yi Wonik petition · 1597',
+    captionKo: '이원익 상소문 · 관직 회복 요청',
     tag: 'Archive',
   },
   {
     src: '/images/이순신_난중일기_및_서간첩_임진장초.PNG',
     alt: 'Yi Sun-sin war diary manuscript excerpt',
-    caption: 'Nanjung Ilgi manuscript',
-    captionKo: '이순신 난중일기',
+    caption: 'Nanjung Ilgi · Imjin Wars',
+    captionKo: '난중일기 · 임진왜란',
     tag: 'Archive',
   },
   {
