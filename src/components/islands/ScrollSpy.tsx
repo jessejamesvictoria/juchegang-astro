@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
-
-const sections = ['current', 'manifesto', 'bridge', 'heritage', 'network', 'ai', 'process', 'brand', 'contact']
+import { scrollSpySections } from '../../data/navigation'
 
 export function ScrollSpy() {
   useEffect(() => {
@@ -23,7 +22,7 @@ export function ScrollSpy() {
       { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
     )
 
-    sections.forEach((id) => {
+    scrollSpySections.forEach((id) => {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     })

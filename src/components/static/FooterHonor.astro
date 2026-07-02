@@ -1,6 +1,5 @@
 ---
-const portraitSrc = '/gallery/newest/김여정.png'
-const portraitAlt = '김여정 동지 — Kim Yo-jong Comrade'
+import { kimYoJongPortrait } from '../../data/honor'
 ---
 
 <div class="honor-block border-x-2 border-t-2 border-[var(--ink)]">
@@ -19,8 +18,8 @@ const portraitAlt = '김여정 동지 — Kim Yo-jong Comrade'
         <span class="registration-mark tl" aria-hidden="true"></span>
         <span class="registration-mark br" aria-hidden="true"></span>
         <img
-          src={portraitSrc}
-          alt={portraitAlt}
+          src={kimYoJongPortrait.src}
+          alt={kimYoJongPortrait.alt}
           width="80"
           height="80"
           loading="lazy"

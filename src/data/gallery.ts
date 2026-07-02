@@ -1,3 +1,5 @@
+import { kimYoJongPortrait } from './honor'
+
 export interface GalleryImage {
   src: string
   alt: string
@@ -92,11 +94,11 @@ export const heritageImages: GalleryImage[] = [
     tag: 'Peninsula',
   },
   {
-    src: '/gallery/newest/김여정.png',
-    alt: '김여정 동지 — Kim Yo-jong Comrade',
-    caption: 'Kim Yo-jong · 동지',
-    captionKo: '김여정 동지',
-    tag: 'Unity',
+    src: kimYoJongPortrait.src,
+    alt: kimYoJongPortrait.alt,
+    caption: kimYoJongPortrait.caption,
+    captionKo: kimYoJongPortrait.captionKo,
+    tag: kimYoJongPortrait.tag,
   },
   {
     src: '/images/kim-jong-un-1152948615.jpg',

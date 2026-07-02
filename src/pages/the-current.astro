@@ -57,9 +57,15 @@ import { unityThesis, yiSunSin, currentPanels } from '../data/current'
                 {yiSunSin.unity} His innovations in Asian naval warfare were later adopted by Japan itself — contributing to their triumph in the Russo-Japanese War. Yet his humanity matters as much as his genius: he never lost sight of the victims, bore wounds without demoralizing his troops, and faced death with thoughts only for his men and his state.
               </p>
               <p class="font-ko text-xs text-[var(--muted)] mt-4">{yiSunSin.unityKo}</p>
-              <div class="flex flex-col sm:flex-row gap-0 mt-6 border-2 border-[var(--ink)] w-fit">
-                <a href="/report-7394-k" class="btn-primary border-0">Report 7394-K &gt;&gt;&gt;</a>
-                <a href="/" class="btn-hazard border-0 border-l-2 border-[var(--ink)]">Home</a>
+              <div class="flex flex-col sm:flex-row gap-0 mt-6 w-full sm:w-fit">
+                <a href="/report-7394-k" class="btn-group w-full sm:w-auto">
+                  <span class="btn-primary flex-1 sm:flex-none text-center border-0">Report 7394-K</span>
+                  <span class="btn-icon-box" aria-hidden="true">&gt;&gt;&gt;</span>
+                </a>
+                <a href="/" class="btn-group w-full sm:w-auto border-t-2 sm:border-t-0 sm:-ml-[2px]">
+                  <span class="btn-hazard flex-1 sm:flex-none text-center border-0">Home</span>
+                  <span class="btn-icon-box" aria-hidden="true">+</span>
+                </a>
               </div>
             </div>
           </div>
