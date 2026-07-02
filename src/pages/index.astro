@@ -9,15 +9,17 @@ import AISection from '../components/static/AISection.astro'
 import ProcessSection from '../components/static/ProcessSection.astro'
 import ContactSection from '../components/static/ContactSection.astro'
 import PeaceCounter from '../components/islands/PeaceCounter'
+import NetworkTicker from '../components/islands/NetworkTicker'
 ---
 
 <Base title="Unity and AI for Korea and Canada">
   <a href="#main-content" class="sr-only">Skip to content</a>
-  <Header currentPath="/" />
+  <Header />
 
   <main id="main-content">
     <HeroSection />
-    <PeaceCounter client:idle />
+    <NetworkTicker client:visible />
+    <PeaceCounter client:visible />
     <BridgeSection />
     <NetworkSection />
     <AISection />

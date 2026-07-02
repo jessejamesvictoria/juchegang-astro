@@ -1,33 +1,64 @@
 ---
 import { networkSites } from '../../data/network'
+
+const coreSites = networkSites.filter(s => s.tag === 'Core')
+const otherSites = networkSites.filter(s => s.tag !== 'Core')
 ---
 
-<section id="network" class="border-b-2 border-[var(--ink)] bg-[var(--paper)]">
+<section id="network" class="border-b-2 border-[var(--ink)]">
   <div class="container-app">
     <div class="border-x-2 border-[var(--ink)]">
-      <div class="cell border-b-2 border-[var(--ink)] reveal">
-        <h2 class="text-macro">JPanda Network</h2>
-        <p class="font-ko text-sm text-[var(--muted)] mt-3">제이판다 네트워크</p>
-        <p class="text-sm max-w-2xl mt-6 leading-relaxed bilingual">
-          Research, civic intelligence, strategic analysis, and AI infrastructure. Each property serves a distinct mission within one unified vision.
-          <span class="ko block">연구, 시민 인텔리전스, 전략 분석, AI 인프라. 통합된 비전 안의 고유한 사명.</span>
-        </p>
+      <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)]">
+        <div class="lg:col-span-8 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+          <h2 class="text-macro frame-angle">JPanda Network</h2>
+          <p class="font-ko text-sm text-[var(--muted)] mt-3">제이판다 네트워크</p>
+        </div>
+        <div class="lg:col-span-4 cell flex items-end reveal reveal-delay-1">
+          <p class="text-sm text-body bilingual text-pretty">
+            Research, civic intelligence, strategic analysis, and AI infrastructure across thirteen properties.
+            <span class="ko block">연구, 시민 인텔리전스, 전략 분석, AI 인프라.</span>
+          </p>
+        </div>
       </div>
 
-      <div class="blueprint-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 reveal">
-        {networkSites.map(site => (
+      <div class="compartment-header">
+        <samp class="font-mono-ui text-[var(--hazard)]">Core properties</samp>
+      </div>
+      <div class="blueprint-grid grid-cols-1 md:grid-cols-2 reveal reveal-delay-2">
+        {coreSites.map(site => (
           <a
             href={site.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="network-link cell"
+            class="network-link cell min-h-[200px]"
           >
-            <div class="flex items-start justify-between gap-4 mb-4">
+            <div class="network-card-meta flex items-start justify-between gap-4">
               <code class="font-mono-ui text-[var(--ink)] text-[0.65rem]">{site.name}</code>
-              {site.tag && <span class="tag-hazard">{site.tag}</span>}
+              <samp class="tag-hazard">{site.tag}</samp>
             </div>
-            <p class="text-xs text-[var(--muted)] leading-relaxed">{site.description}</p>
-            <span class="link-arrow font-mono-ui text-[var(--muted)] mt-4 inline-block transition-colors">Visit &gt;&gt;&gt;</span>
+            <p class="text-sm text-body text-pretty">{site.description}</p>
+            <span class="link-arrow link-cta text-[var(--muted)]">&gt;&gt;&gt; Visit</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="compartment-header border-t-2 border-[var(--ink)]">
+        <samp class="font-mono-ui text-[var(--hazard)]">Extended network</samp>
+      </div>
+      <div class="blueprint-grid grid-cols-1 sm:grid-cols-2 reveal reveal-delay-3">
+        {otherSites.map(site => (
+          <a
+            href={site.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="network-link cell min-h-[180px]"
+          >
+            <div class="network-card-meta flex items-start justify-between gap-3">
+              <code class="font-mono-ui text-[0.6rem]">{site.name}</code>
+              {site.tag && <samp class="tag-ink">{site.tag}</samp>}
+            </div>
+            <p class="text-xs text-[var(--muted)] leading-relaxed flex-1">{site.description}</p>
+            <span class="link-arrow link-cta text-[var(--muted)] text-[0.6rem]">&gt;&gt;&gt; Visit</span>
           </a>
         ))}
       </div>

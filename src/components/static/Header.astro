@@ -1,62 +1,62 @@
 ---
-interface Props {
-  currentPath?: string
-}
-
-const { currentPath = '/' } = Astro.props
+import ScrollSpy from '../islands/ScrollSpy'
 
 const navItems = [
-  { href: '#bridge', label: 'Bridge' },
-  { href: '#network', label: 'Network' },
-  { href: '#ai', label: 'AI' },
-  { href: '#process', label: 'Process' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#bridge', label: 'Bridge', section: 'bridge' },
+  { href: '#network', label: 'Network', section: 'network' },
+  { href: '#ai', label: 'AI', section: 'ai' },
+  { href: '#process', label: 'Process', section: 'process' },
+  { href: '#contact', label: 'Contact', section: 'contact' },
 ]
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 border-b-2 border-[var(--ink)] bg-[var(--paper)]">
+<header class="fixed top-0 left-0 right-0 z-[var(--z-nav)] border-b-2 border-[var(--ink)] bg-[var(--paper)]">
+  <div class="barcode-strip" aria-hidden="true"></div>
   <div class="container-app">
-    <div class="flex items-stretch justify-between min-h-[var(--nav-h)]">
-      <a href="/" class="flex items-center gap-3 no-underline text-inherit py-3 pr-4 border-r border-[var(--ink)] border-opacity-20">
-        <img src="/brand/mark.svg" alt="" width="32" height="32" />
+    <div class="flex items-stretch justify-between min-h-[var(--nav-h)] border-x-2 border-[var(--ink)]">
+      <a href="/" class="flex items-center gap-3 no-underline text-inherit py-3 px-4 border-r-2 border-[var(--ink)]" aria-label="JucheGang home">
+        <img src="/brand/mark.svg" alt="" width="32" height="32" aria-hidden="true" />
         <span class="font-macro text-sm hidden sm:inline">JucheGang</span>
+        <span class="structural-mark hidden md:inline" aria-hidden="true">®</span>
       </a>
 
       <nav class="hidden lg:flex items-stretch flex-1 justify-end" aria-label="Main navigation">
-        {navItems.map((item, i) => (
+        {navItems.map(item => (
           <a
             href={item.href}
-            class:list={[
-              'font-mono-ui flex items-center px-5 no-underline border-l border-[var(--ink)] border-opacity-20 transition-colors',
-              currentPath === item.href ? 'bg-[var(--ink)] text-[var(--paper)]' : 'text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)]',
-            ]}
+            data-nav-section={item.section}
+            class="font-mono-ui flex items-center px-5 no-underline border-l-2 border-[var(--ink)] text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)]"
           >
             {item.label}
           </a>
         ))}
-        <a href="#contact" class="font-mono-ui flex items-center px-6 bg-[var(--hazard)] text-[var(--paper)] no-underline hover:bg-[var(--ink)] transition-colors">
-          Connect
+        <a href="#contact" class="font-mono-ui flex items-center px-6 bg-[var(--hazard)] text-[var(--paper)] no-underline border-l-2 border-[var(--ink)] hover:bg-[var(--ink)]">
+          Connect &gt;&gt;&gt;
         </a>
       </nav>
 
-      <details class="mobile-menu lg:hidden flex items-center">
+      <details class="mobile-menu lg:hidden flex items-center border-l-2 border-[var(--ink)]">
         <summary class="font-mono-ui px-5 py-4 cursor-pointer" aria-label="Open menu">Menu</summary>
         <nav class="p-0">
           <div class="flex items-center justify-between px-6 py-4 border-b-2 border-[var(--ink)]">
             <span class="font-macro text-sm">Navigation</span>
             <button type="button" onclick="this.closest('details').removeAttribute('open')" class="font-mono-ui cursor-pointer bg-transparent border-0 p-2" aria-label="Close menu">Close</button>
           </div>
-          <ul class="divide-y divide-[var(--ink)] divide-opacity-20">
+          <ul class="divide-y-2 divide-[var(--ink)]">
             {navItems.map(item => (
               <li>
-                <a href={item.href} class="block font-mono-ui px-6 py-4 no-underline text-[var(--ink)] hover:bg-[var(--hazard)] hover:text-[var(--paper)] transition-colors">
+                <a
+                  href={item.href}
+                  data-nav-section={item.section}
+                  class="block font-mono-ui px-6 py-4 no-underline text-[var(--ink)] hover:bg-[var(--hazard)] hover:text-[var(--paper)]"
+                >
                   {item.label}
                 </a>
               </li>
             ))}
           </ul>
           <div class="p-6 border-t-2 border-[var(--ink)]">
-            <a href="#contact" class="btn-primary w-full text-center">Connect</a>
+            <a href="#contact" class="btn-primary w-full text-center">Connect &gt;&gt;&gt;</a>
           </div>
         </nav>
       </details>
@@ -64,4 +64,6 @@ const navItems = [
   </div>
 </header>
 
-<div class="h-[var(--nav-h)]" aria-hidden="true"></div>
+<ScrollSpy client:idle />
+
+<div class="h-[var(--header-h)]" aria-hidden="true"></div>

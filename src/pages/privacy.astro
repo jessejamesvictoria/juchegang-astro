@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/static/Header.astro'
+import Footer from '../components/static/Footer.astro'
+---
+
+<Base
+  title="Privacy policy"
+  description="How JucheGang and JPanda Network handle contact information and site usage data."
+>
+  <a href="#main-content" class="sr-only">Skip to content</a>
+  <Header />
+  <main id="main-content" class="min-h-[50dvh]">
+    <div class="container-app py-12">
+      <article class="border-2 border-[var(--ink)] cell max-w-2xl reveal visible">
+        <samp class="font-mono-ui text-[var(--hazard)] block mb-4">Legal</samp>
+        <h1 class="text-macro mb-6 text-balance">Privacy policy</h1>
+        <div class="text-body text-sm space-y-4 text-pretty">
+          <p>JucheGang collects only the information you submit through the contact form: name, email, organization, and message. That data opens in your email client and is sent directly to panda@juche.org.</p>
+          <p>This site does not use third-party analytics cookies. Standard server logs may record IP address, browser type, and request time for security and reliability.</p>
+          <p>Questions about data handling: <a href="mailto:panda@juche.org" class="link-text">panda@juche.org</a></p>
+        </div>
+        <a href="/" class="btn-primary mt-8 inline-flex">&gt;&gt;&gt; Return home</a>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</Base>

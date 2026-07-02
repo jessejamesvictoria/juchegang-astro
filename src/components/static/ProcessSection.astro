@@ -3,23 +3,25 @@ import { processSteps } from '../../data/network'
 ---
 
 <section id="process" class="border-b-2 border-[var(--ink)]">
+  <div class="hazard-stripe" aria-hidden="true"></div>
   <div class="container-app">
     <div class="border-x-2 border-[var(--ink)]">
       <div class="cell border-b-2 border-[var(--ink)] reveal">
-        <h2 class="text-section">Verification First</h2>
+        <h2 class="text-section frame-bracket">Verification first</h2>
         <p class="font-ko text-sm text-[var(--muted)] mt-3">검증 우선</p>
-        <p class="text-sm max-w-2xl mt-6 leading-relaxed bilingual">
+        <p class="text-sm text-body mt-6 bilingual text-pretty">
           No unverified claims. Every connection backed by sourced intelligence and on-the-ground relationships.
           <span class="ko block">검증되지 않은 주장은 없습니다. 모든 연결은 출처와 현장 관계로 뒷받침됩니다.</span>
         </p>
       </div>
 
-      <div class="blueprint-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 reveal">
+      <div class="blueprint-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 reveal reveal-delay-1">
         {processSteps.map(step => (
-          <article class="cell relative">
-            <samp class="font-mono-ui text-[var(--hazard)] block mb-6">Step {step.step}</samp>
-            <h3 class="font-macro text-xl mb-1">{step.title}</h3>
-            <p class="font-ko text-xs text-[var(--muted)] mb-4">{step.titleKo}</p>
+          <article class="cell process-card">
+            <div class="process-card-head">
+              <h3 class="font-macro text-xl mb-1">{step.title}</h3>
+              <p class="font-ko text-xs text-[var(--muted)]">{step.titleKo}</p>
+            </div>
             <p class="text-xs leading-relaxed mb-2">{step.description}</p>
             <p class="font-ko text-xs text-[var(--muted)] leading-relaxed">{step.descriptionKo}</p>
           </article>

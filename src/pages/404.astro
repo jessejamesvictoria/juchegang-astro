@@ -6,13 +6,15 @@ import Footer from '../components/static/Footer.astro'
 
 <Base title="Page Not Found">
   <Header />
-  <main id="main-content" class="min-h-[60dvh] flex items-center">
+  <main id="main-content" class="min-h-[60dvh] flex items-center blueprint-canvas">
     <div class="container-app w-full">
-      <div class="border-2 border-[var(--ink)] cell max-w-xl reveal visible">
-        <p class="font-mono-ui text-[var(--hazard)] mb-4">Error 404</p>
-        <h1 class="text-macro mb-6">Not Found</h1>
+      <div class="border-2 border-[var(--ink)] cell max-w-xl reveal visible relative">
+        <span class="registration-mark tl" aria-hidden="true"></span>
+        <span class="crosshair-mark br" aria-hidden="true">+</span>
+        <samp class="font-mono-ui text-[var(--hazard)] block mb-4">Error 404</samp>
+        <h1 class="text-macro mb-6 frame-bracket">Not found</h1>
         <p class="text-sm text-[var(--muted)] mb-8">The requested route does not exist in this network node.</p>
-        <a href="/" class="btn-primary">Return Home</a>
+        <a href="/" class="btn-primary">&gt;&gt;&gt; Return home</a>
       </div>
     </div>
   </main>

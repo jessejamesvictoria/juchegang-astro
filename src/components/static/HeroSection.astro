@@ -2,31 +2,42 @@
 import { stats } from '../../data/network'
 ---
 
-<section class="border-b-2 border-[var(--ink)]">
+<section class="border-b-2 border-[var(--ink)] blueprint-canvas relative">
+  <span class="registration-mark tl" aria-hidden="true"></span>
+  <span class="registration-mark tr" aria-hidden="true"></span>
+
   <div class="container-app">
     <div class="grid lg:grid-cols-12 gap-0 border-x-2 border-[var(--ink)]">
-      <div class="lg:col-span-7 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] min-h-[min(100dvh,var(--nav-h)+520px)] flex flex-col justify-between reveal">
+      <div class="lg:col-span-7 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] min-h-[calc(100dvh-var(--header-h))] flex flex-col justify-between pt-6 lg:pt-8 reveal">
         <div>
-          <p class="font-mono-ui text-[var(--hazard)] mb-6">Rev 3.0 / Unit KC-01 / Pacific Corridor</p>
-          <h1 class="text-mega text-[var(--ink)]">
-            Juche<br /><span class="text-[var(--hazard)]">Gang</span>
+          <div class="telemetry-row mb-6">
+            <span><strong>+</strong> KC-01</span>
+            <span>Pacific corridor</span>
+            <span>Korea / Canada</span>
+          </div>
+          <h1 class="text-mega hero-headline text-[var(--ink)] text-balance">
+            Juche<span class="hazard-word">Gang</span>
           </h1>
-          <p class="font-ko text-base text-[var(--muted)] mt-6 max-w-md">한국과 캐나다를 잇는 통일과 인공지능</p>
+          <p class="font-ko text-base text-[var(--muted)] mt-5 max-w-md">한국과 캐나다를 잇는 통일과 인공지능</p>
         </div>
 
-        <div class="mt-10 lg:mt-0">
-          <p class="text-base max-w-lg leading-relaxed bilingual">
-            Bridging Korean diaspora communities in Canada with strategic intelligence, civic infrastructure, and AI-orchestrated collaboration.
-            <span class="ko block">캐나다 한인 디아스포라와 전략 인텔리전스, 시민 인프라, AI 협업을 태평양 회랑에서 연결합니다.</span>
+        <div class="mt-8 lg:mt-0 pb-4">
+          <p class="text-sm text-body bilingual text-pretty">
+            Bridging Korean diaspora communities with strategic intelligence, civic infrastructure, and AI-orchestrated collaboration.
+            <span class="ko block">캐나다 한인 디아스포라와 전략 인텔리전스, 시민 인프라, AI 협업을 연결합니다.</span>
           </p>
-          <div class="flex flex-col sm:flex-row gap-0 mt-8 border-2 border-[var(--ink)] w-fit">
-            <a href="#network" class="btn-primary border-0">Network</a>
+          <div class="flex flex-col sm:flex-row gap-0 mt-7 border-2 border-[var(--ink)] w-fit">
+            <a href="#network" class="btn-primary border-0">Network &gt;&gt;&gt;</a>
             <a href="https://juchegang.ca/the-current" class="btn-hazard border-0 border-l-2 border-[var(--ink)]">The Current</a>
           </div>
         </div>
       </div>
 
-      <div class="lg:col-span-5 relative min-h-[280px] lg:min-h-0 halftone-img reveal">
+      <div class="lg:col-span-5 relative min-h-[320px] lg:min-h-0 halftone-img reveal reveal-delay-1">
+        <span class="crosshair-mark tl" aria-hidden="true">+</span>
+        <span class="crosshair-mark tr" aria-hidden="true">+</span>
+        <span class="crosshair-mark bl" aria-hidden="true">+</span>
+        <span class="crosshair-mark br" aria-hidden="true">+</span>
         <img
           src="/images/hero-pacific-corridor.jpg"
           alt="Pacific corridor blueprint connecting Korea and Canada"
@@ -36,20 +47,20 @@ import { stats } from '../../data/network'
           fetchpriority="high"
           class="absolute inset-0 w-full h-full"
         />
-        <div class="absolute bottom-0 left-0 right-0 p-4 bg-[var(--paper)] border-t-2 border-[var(--ink)]">
-          <p class="font-mono-ui text-[var(--muted)]">Fig. 01 / Pacific Corridor / KC Division</p>
-        </div>
       </div>
     </div>
 
-    <div class="blueprint-grid grid-cols-2 md:grid-cols-4 border-x-2 border-b-2 border-[var(--ink)] reveal">
+    <div class="blueprint-grid grid-cols-2 md:grid-cols-4 border-x-2 border-b-2 border-[var(--ink)] reveal reveal-delay-2">
       {stats.map(stat => (
-        <div class="cell text-center">
+        <div class="cell">
           <data value={stat.value} class="stat-num block text-[var(--ink)]">{stat.value}</data>
-          <p class="font-mono-ui mt-2 text-[var(--ink)]">{stat.label}</p>
+          <p class="font-mono-ui mt-3 text-[var(--ink)]">{stat.label}</p>
           <p class="font-ko text-xs text-[var(--muted)] mt-1">{stat.labelKo}</p>
         </div>
       ))}
     </div>
   </div>
+
+  <span class="registration-mark bl" aria-hidden="true"></span>
+  <span class="registration-mark br" aria-hidden="true"></span>
 </section>

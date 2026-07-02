@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/static/Header.astro'
+import Footer from '../components/static/Footer.astro'
+---
+
+<Base
+  title="Terms of use"
+  description="Terms governing use of juchegang.ca and JPanda Network properties."
+>
+  <a href="#main-content" class="sr-only">Skip to content</a>
+  <Header />
+  <main id="main-content" class="min-h-[50dvh]">
+    <div class="container-app py-12">
+      <article class="border-2 border-[var(--ink)] cell max-w-2xl reveal visible">
+        <samp class="font-mono-ui text-[var(--hazard)] block mb-4">Legal</samp>
+        <h1 class="text-macro mb-6 text-balance">Terms of use</h1>
+        <div class="text-body text-sm space-y-4 text-pretty">
+          <p>Content on juchegang.ca is provided for informational purposes. Analysis and network links reflect JPanda Network research as of publication. Verify critical claims against primary sources.</p>
+          <p>External sites in the JPanda Network operate under their own terms. JucheGang is not responsible for third-party content or availability.</p>
+          <p>By using this site you agree not to disrupt its operation or attempt unauthorized access to connected systems.</p>
+          <p>Legal inquiries: <a href="mailto:panda@juche.org" class="link-text">panda@juche.org</a></p>
+        </div>
+        <a href="/" class="btn-primary mt-8 inline-flex">&gt;&gt;&gt; Return home</a>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</Base>

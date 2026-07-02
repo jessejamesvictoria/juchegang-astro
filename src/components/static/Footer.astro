@@ -6,25 +6,28 @@ const links = networkSites.slice(0, 8)
 ---
 
 <footer class="border-t-2 border-[var(--ink)]">
+  <div class="hazard-stripe" aria-hidden="true"></div>
+  <div class="barcode-strip" aria-hidden="true"></div>
   <div class="container-app">
     <div class="grid md:grid-cols-12 border-x-2 border-[var(--ink)]">
       <div class="md:col-span-4 cell border-b-2 md:border-b-0 md:border-r-2 border-[var(--ink)]">
         <div class="flex items-center gap-3 mb-4">
           <img src="/brand/mark.svg" alt="" width="28" height="28" />
           <span class="font-macro text-sm">JucheGang</span>
+          <span class="structural-mark" aria-hidden="true">®</span>
         </div>
-        <p class="text-xs text-[var(--muted)] leading-relaxed max-w-xs">
+        <p class="text-xs text-[var(--muted)] leading-relaxed text-body">
           Unity and AI for Korea and Canada. JPanda Network.
         </p>
         <p class="font-ko text-xs text-[var(--muted)] mt-3">한국과 캐나다를 잇는 통일과 인공지능</p>
       </div>
 
       <div class="md:col-span-4 cell border-b-2 md:border-b-0 md:border-r-2 border-[var(--ink)]">
-        <p class="font-mono-ui text-[var(--hazard)] mb-4">Network</p>
+        <p class="font-mono-ui text-[var(--hazard)] mb-4">[ Network ]</p>
         <ul class="grid grid-cols-2 gap-x-4 gap-y-2">
           {links.map(site => (
             <li>
-              <a href={site.url} target="_blank" rel="noopener noreferrer" class="font-mono-ui text-[0.6rem] text-[var(--muted)] no-underline hover:text-[var(--hazard)] transition-colors">
+              <a href={site.url} target="_blank" rel="noopener noreferrer" class="font-mono-ui text-[0.6rem] text-[var(--muted)] no-underline hover:text-[var(--hazard)] transition-colors duration-250">
                 {site.name}
               </a>
             </li>
@@ -33,18 +36,22 @@ const links = networkSites.slice(0, 8)
       </div>
 
       <div class="md:col-span-4 cell">
-        <p class="font-mono-ui text-[var(--hazard)] mb-4">Connect</p>
+        <p class="font-mono-ui text-[var(--hazard)] mb-4">[ Connect ]</p>
         <ul class="space-y-2">
-          <li><a href="mailto:panda@juche.org" class="font-mono-ui text-[0.65rem] text-[var(--muted)] no-underline hover:text-[var(--ink)]">panda@juche.org</a></li>
-          <li><a href="https://t.me/tigerrising" target="_blank" rel="noopener noreferrer" class="font-mono-ui text-[0.65rem] text-[var(--muted)] no-underline hover:text-[var(--ink)]">Telegram</a></li>
-          <li><a href="https://instagram.com/jpandajames39" target="_blank" rel="noopener noreferrer" class="font-mono-ui text-[0.65rem] text-[var(--muted)] no-underline hover:text-[var(--ink)]">Instagram</a></li>
+          <li><a href="mailto:panda@juche.org" class="font-mono-ui text-[0.65rem] text-[var(--muted)] no-underline hover:text-[var(--ink)] transition-colors duration-250">panda@juche.org</a></li>
+          <li><a href="https://t.me/tigerrising" target="_blank" rel="noopener noreferrer" class="font-mono-ui text-[0.65rem] text-[var(--muted)] no-underline hover:text-[var(--ink)] transition-colors duration-250">Telegram</a></li>
+          <li><a href="https://instagram.com/jpandajames39" target="_blank" rel="noopener noreferrer" class="font-mono-ui text-[0.65rem] text-[var(--muted)] no-underline hover:text-[var(--ink)] transition-colors duration-250">Instagram</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="border-x-2 border-b-2 border-[var(--ink)] cell flex flex-col sm:flex-row justify-between gap-4">
+    <div class="border-x-2 border-b-2 border-[var(--ink)] cell flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
       <p class="font-mono-ui text-[var(--muted)] text-[0.6rem]">&copy; {year} JucheGang / JPanda Network</p>
-      <p class="font-mono-ui text-[var(--muted)] text-[0.6rem]">Victoria, BC / Unit KC-01</p>
+      <nav aria-label="Legal" class="flex flex-wrap gap-4">
+        <a href="/privacy" class="link-text">Privacy</a>
+        <a href="/terms" class="link-text">Terms</a>
+      </nav>
+      <p class="font-mono-ui text-[var(--muted)] text-[0.6rem]">Victoria, BC / KC-01</p>
     </div>
   </div>
 </footer>

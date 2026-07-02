@@ -1,51 +1,41 @@
 ---
 import { developments } from '../../data/network'
+
+const properties = [
+  { domain: 'fitforgov.com', role: 'Gov', desc: 'Public-sector AI and institutional transformation.' },
+  { domain: 'gprkinetic.pro', role: 'Ops', desc: 'AI-orchestrated franchise and inspection networks.' },
+  { domain: 'npsi.ca', role: 'Intel', desc: 'North Pacific strategic policy research.' },
+  { domain: 'langfordcity.com', role: 'Civic', desc: 'Municipal intelligence and civic technology.' },
+]
 ---
 
 <section id="ai" class="border-b-2 border-[var(--ink)]">
   <div class="container-app">
     <div class="grid lg:grid-cols-12 border-x-2 border-[var(--ink)]">
-      <div class="lg:col-span-5 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
-        <h2 class="text-section mb-6">AI Orchestrated</h2>
+      <div class="lg:col-span-4 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+        <h2 class="text-section frame-bracket mb-4">AI orchestrated</h2>
         <p class="font-ko text-sm text-[var(--muted)] mb-6">AI 기반 조율</p>
-        <p class="text-sm leading-relaxed bilingual mb-10">
+        <p class="text-sm text-body bilingual text-pretty mb-8">
           Due diligence automation, franchise operations, civic intelligence. AI coordinates the network without replacing human judgment.
           <span class="ko block">실사 자동화, 프랜차이즈 운영, 시민 인텔리전스. 인간의 판단을 대체하지 않고 네트워크를 조율합니다.</span>
         </p>
 
-        <dl class="space-y-0 border-2 border-[var(--ink)]">
-          <div class="grid grid-cols-[1fr_auto] gap-4 px-4 py-3 border-b border-[var(--ink)] border-opacity-20">
-            <dt class="font-mono-ui text-[var(--muted)]">fitforgov.com</dt>
-            <dd class="font-mono-ui text-[var(--hazard)]">Gov</dd>
-          </div>
-          <div class="px-4 py-3 border-b border-[var(--ink)] border-opacity-20">
-            <dd class="text-xs">Public-sector AI and institutional transformation.</dd>
-          </div>
-          <div class="grid grid-cols-[1fr_auto] gap-4 px-4 py-3 border-b border-[var(--ink)] border-opacity-20">
-            <dt class="font-mono-ui text-[var(--muted)]">gprkinetic.pro</dt>
-            <dd class="font-mono-ui text-[var(--hazard)]">Ops</dd>
-          </div>
-          <div class="px-4 py-3 border-b border-[var(--ink)] border-opacity-20">
-            <dd class="text-xs">AI-orchestrated franchise and inspection networks.</dd>
-          </div>
-          <div class="grid grid-cols-[1fr_auto] gap-4 px-4 py-3 border-b border-[var(--ink)] border-opacity-20">
-            <dt class="font-mono-ui text-[var(--muted)]">npsi.ca</dt>
-            <dd class="font-mono-ui text-[var(--hazard)]">Intel</dd>
-          </div>
-          <div class="px-4 py-3 border-b border-[var(--ink)] border-opacity-20">
-            <dd class="text-xs">North Pacific strategic policy research.</dd>
-          </div>
-          <div class="grid grid-cols-[1fr_auto] gap-4 px-4 py-3">
-            <dt class="font-mono-ui text-[var(--muted)]">langfordcity.com</dt>
-            <dd class="font-mono-ui text-[var(--hazard)]">Civic</dd>
-          </div>
-          <div class="px-4 py-3">
-            <dd class="text-xs">Municipal intelligence and civic technology.</dd>
-          </div>
+        <dl>
+          {properties.map(prop => (
+            <div class="ai-property">
+              <div class="flex items-center justify-between gap-4 mb-1">
+                <dt class="font-mono-ui text-[var(--ink)] text-[0.6rem]">{prop.domain}</dt>
+                <dd><samp class="tag-hazard">{prop.role}</samp></dd>
+              </div>
+              <dd class="text-xs text-[var(--muted)]">{prop.desc}</dd>
+            </div>
+          ))}
         </dl>
       </div>
 
-      <div class="lg:col-span-4 relative min-h-[300px] halftone-img border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+      <div class="lg:col-span-5 relative min-h-[340px] halftone-img border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal reveal-delay-1">
+        <span class="crosshair-mark tl" aria-hidden="true">+</span>
+        <span class="crosshair-mark br" aria-hidden="true">+</span>
         <img
           src="/images/ai-network-schematic.jpg"
           alt="AI network topology schematic"
@@ -56,13 +46,13 @@ import { developments } from '../../data/network'
         />
       </div>
 
-      <div class="lg:col-span-3 reveal">
-        <div class="cell border-b-2 border-[var(--ink)]">
-          <p class="font-mono-ui text-[var(--hazard)]">Developments</p>
+      <div class="lg:col-span-3 reveal reveal-delay-2">
+        <div class="compartment-header border-b-2 border-[var(--ink)]">
+          <samp class="font-mono-ui text-[var(--hazard)]">Developments</samp>
         </div>
         {developments.map((item, i) => (
           <article class:list={['cell border-b-2 border-[var(--ink)]', i === developments.length - 1 && 'border-b-0']}>
-            <time class="font-mono-ui text-[var(--muted)] block mb-2" datetime={item.date}>{item.date}</time>
+            <time class="font-mono-ui text-[var(--hazard)] block mb-2" datetime={item.date}>{item.date}</time>
             <p class="text-xs leading-relaxed">{item.title}</p>
             <p class="font-ko text-xs text-[var(--muted)] mt-2">{item.titleKo}</p>
           </article>
