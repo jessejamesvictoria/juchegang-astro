@@ -91,4 +91,25 @@ export const heritageImages: GalleryImage[] = [
     captionKo: '한국 풍경',
     tag: 'Peninsula',
   },
+  {
+    src: '/images/Kim_Yo-jong_(2018).png',
+    alt: 'Kim Yo-jong, 2018',
+    caption: 'Kim Yo-jong · 2018',
+    captionKo: '김여정 동지',
+    tag: 'Unity',
+  },
+  {
+    src: '/images/kim-jong-un-1152948615.jpg',
+    alt: 'Kim Jong Un, Chairman',
+    caption: 'Chairman Kim Jong Un',
+    captionKo: '김정은 위원장',
+    tag: 'Unity',
+  },
+  {
+    src: '/images/IMG_20230305_140439_01%20-%20Copy.jpg',
+    alt: 'Korean peninsula field photograph, March 2023',
+    caption: 'Field record · 2023',
+    captionKo: '현장 기록 · 2023',
+    tag: 'Peninsula',
+  },
 ]

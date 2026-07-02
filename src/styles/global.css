@@ -734,6 +734,87 @@ details.mobile-menu[open] nav {
   margin-top: 0;
 }
 
+/* Current section — prevent laptop wrapping in stat panels */
+.current-panel-body > * {
+  min-width: 0;
+}
+
+.current-panel-title {
+  font-size: clamp(1.125rem, 2vw, 1.75rem);
+  line-height: 1.05;
+  overflow-wrap: break-word;
+}
+
+.current-panel-copy .text-body {
+  max-width: none;
+}
+
+.current-panel-quote cite {
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.current-stat-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 7.5rem;
+}
+
+.current-stat-value {
+  font-family: var(--font-macro);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.current-stat-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+.current-stat-detail {
+  margin-top: 0.1rem;
+  line-height: 1.4;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .current-panel-intro,
+  .current-panel-copy {
+    padding:
+      clamp(1rem, 2vw, 1.5rem)
+      clamp(1rem, 2vw, 1.75rem)
+      clamp(1.25rem, 2.5vw, 2rem);
+  }
+
+  .current-stat-cell {
+    min-height: 6.5rem;
+    padding:
+      clamp(0.875rem, 1.5vw, 1.25rem)
+      clamp(0.875rem, 1.5vw, 1.25rem)
+      clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .current-stat-value {
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  }
+}
+
+.compartment-header samp {
+  text-wrap: pretty;
+  line-height: 1.4;
+}
+
 .honor-block {
   background: var(--paper);
 }
