@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
 import GoogleAnalytics from '../components/static/GoogleAnalytics.astro'
+import Analytics from '@vercel/analytics/astro'
 import '../styles/global.css'
 
 interface Props {
@@ -25,6 +26,7 @@ const ogImageUrl = `${siteUrl}${ogImage}`
 <html lang="en">
 <head>
   <GoogleAnalytics />
+  <Analytics />
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
