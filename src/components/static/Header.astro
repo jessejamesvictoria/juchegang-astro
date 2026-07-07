@@ -47,6 +47,7 @@ const getHref = (href: string) => (href.startsWith('#') && !isHome ? `/${href}` 
                   href={getHref(item.href)}
                   data-nav-section={item.section}
                   class="block font-mono-ui px-6 py-4 no-underline text-[var(--ink)] hover:bg-[var(--hazard)] hover:text-[var(--paper)]"
+                  onclick="this.closest('details').removeAttribute('open')"
                 >
                   {item.label}
                 </a>
@@ -54,7 +55,7 @@ const getHref = (href: string) => (href.startsWith('#') && !isHome ? `/${href}` 
             ))}
           </ul>
           <div class="p-6 border-t-2 border-[var(--ink)]">
-            <a href={getHref('#contact')} class="btn-group w-full">
+            <a href={getHref('#contact')} class="btn-group w-full" onclick="this.closest('details').removeAttribute('open')">
               <span class="btn-primary flex-1 text-center border-0">Connect</span>
               <span class="btn-icon-box" aria-hidden="true">&gt;&gt;&gt;</span>
             </a>
