@@ -1,6 +1,10 @@
 ---
 import ScrollSpy from '../islands/ScrollSpy'
 import { navItems } from '../../data/navigation'
+
+const currentPath = Astro.url.pathname
+const isHome = currentPath === '/'
+const getHref = (href: string) => (href.startsWith('#') && !isHome ? `/${href}` : href)
 ---
 
 <header class="fixed top-0 left-0 right-0 z-[var(--z-nav)] border-b-2 border-[var(--ink)] bg-[var(--paper)]">
@@ -16,14 +20,14 @@ import { navItems } from '../../data/navigation'
       <nav class="hidden lg:flex items-stretch flex-1 justify-end" aria-label="Main navigation">
         {navItems.map(item => (
           <a
-            href={item.href}
+            href={getHref(item.href)}
             data-nav-section={item.section}
             class="nav-link font-mono-ui flex items-center px-5 no-underline border-l-2 border-[var(--ink)] text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)]"
           >
             {item.label}
           </a>
         ))}
-        <a href="#contact" class="btn-group border-l-2 border-[var(--ink)]">
+        <a href={getHref('#contact')} class="btn-group border-l-2 border-[var(--ink)]">
           <span class="font-mono-ui flex items-center px-5 bg-[var(--hazard)] text-[var(--paper)]">Connect</span>
           <span class="btn-icon-box bg-[var(--hazard)] text-[var(--paper)] border-l-[var(--ink)]" aria-hidden="true">&gt;&gt;&gt;</span>
         </a>
@@ -40,7 +44,7 @@ import { navItems } from '../../data/navigation'
             {navItems.map(item => (
               <li>
                 <a
-                  href={item.href}
+                  href={getHref(item.href)}
                   data-nav-section={item.section}
                   class="block font-mono-ui px-6 py-4 no-underline text-[var(--ink)] hover:bg-[var(--hazard)] hover:text-[var(--paper)]"
                 >
@@ -50,7 +54,7 @@ import { navItems } from '../../data/navigation'
             ))}
           </ul>
           <div class="p-6 border-t-2 border-[var(--ink)]">
-            <a href="#contact" class="btn-group w-full">
+            <a href={getHref('#contact')} class="btn-group w-full">
               <span class="btn-primary flex-1 text-center border-0">Connect</span>
               <span class="btn-icon-box" aria-hidden="true">&gt;&gt;&gt;</span>
             </a>
