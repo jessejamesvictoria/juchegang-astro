@@ -10,6 +10,21 @@ export default defineConfig({
   integrations: [react()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          // Suppress benign Vite warning from Astro internals about unused remote pattern helpers
+          // (imported but not used inside node_modules/astro/dist/assets/utils/remotePattern.js)
+          if (
+            warning.code === 'UNUSED_EXTERNAL_IMPORT' &&
+            warning.id?.includes('remotePattern.js')
+          ) {
+            return;
+          }
+          warn(warning);
+        }
+      }
+    }
   }
 });
