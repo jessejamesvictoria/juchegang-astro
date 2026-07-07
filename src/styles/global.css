@@ -1011,23 +1011,17 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
   background: var(--paper);
 }
 
+/* Award-level fluid portrait treatment — scales beautifully from 320px phones to large desktop */
 .honor-portrait {
   position: relative;
-  width: 5rem;
-  height: 5rem;
-}
-
-@media (min-width: 640px) {
-  .honor-portrait {
-    width: 6.25rem;
-    height: 6.25rem;
-  }
+  width: clamp(4.25rem, 13.5vw, 6.75rem);
+  height: clamp(4.25rem, 13.5vw, 6.75rem);
 }
 
 .honor-portrait-ring {
   position: absolute;
-  inset: -6px;
-  border: 2px solid color-mix(in srgb, var(--hazard) 35%, transparent);
+  inset: -5px;
+  border: 2px solid color-mix(in srgb, var(--hazard) 38%, transparent);
   pointer-events: none;
   z-index: 0;
 }
@@ -1035,7 +1029,7 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
 .honor-portrait-ring::before {
   content: '';
   position: absolute;
-  inset: 3px;
+  inset: 2.5px;
   border: 1px solid var(--ink);
 }
 
@@ -1046,6 +1040,7 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
   border: 2px solid var(--ink);
   background: var(--paper);
   z-index: 1;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
 }
 
 .honor-portrait-frame.halftone-img img,
@@ -1053,9 +1048,9 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 18%;
   display: block;
-  filter: contrast(1.1) grayscale(0.35);
+  filter: contrast(1.15) grayscale(0.38) saturate(0.92);
   mix-blend-mode: normal;
   transition:
     filter var(--duration-mid) var(--ease-premium),
@@ -1063,39 +1058,53 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
 }
 
 .honor-portrait-frame:hover img {
-  filter: contrast(1.15) grayscale(0.15);
-  transform: scale(1.04);
+  filter: contrast(1.22) grayscale(0.12);
+  transform: scale(1.035);
 }
 
 .honor-portrait-tag {
   position: absolute;
-  bottom: -0.5rem;
-  right: -0.5rem;
+  bottom: -0.55rem;
+  right: -0.55rem;
   z-index: 2;
-  padding: 0.15rem 0.4rem;
+  padding: 0.12rem 0.42rem 0.1rem;
   background: var(--hazard);
   color: var(--paper);
   font-size: 0.5rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.135em;
   border: 1px solid var(--ink);
+  line-height: 1;
 }
 
 .honor-corner {
   position: absolute;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: var(--hazard);
   line-height: 1;
   z-index: 2;
   pointer-events: none;
+  font-feature-settings: "tnum";
 }
 
 .honor-corner-tl {
-  top: -0.75rem;
-  left: -0.75rem;
+  top: -0.72rem;
+  left: -0.72rem;
 }
 
 .honor-corner-br {
-  bottom: -0.75rem;
-  right: -0.75rem;
+  bottom: -0.72rem;
+  right: -0.72rem;
+}
+
+/* Extra device polish for the honor block inside footer context */
+@media (max-width: 380px) {
+  .honor-block .cell {
+    padding-top: 1.1rem;
+    padding-bottom: 1.35rem;
+  }
+  .honor-portrait-tag {
+    font-size: 0.46rem;
+    padding: 0.1rem 0.32rem;
+  }
 }

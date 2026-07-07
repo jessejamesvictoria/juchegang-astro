@@ -6,50 +6,116 @@ import SectionEyebrow from './SectionEyebrow.astro'
   <div class="hazard-stripe" aria-hidden="true"></div>
   <div class="container-app">
     <div class="grid lg:grid-cols-12 border-x-2 border-[var(--ink)]">
-      <div class="lg:col-span-4 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal flex flex-col justify-between min-h-[280px]">
+      <!-- Left: Context -->
+      <div class="lg:col-span-4 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal flex flex-col justify-between">
         <div>
-          <SectionEyebrow label="Pacific corridor" labelKo="태평양 회랑" code="BRG-02" />
-          <h2 class="text-macro frame-bracket text-balance">Bridging two worlds</h2>
-          <p class="font-ko text-sm text-[var(--muted)] mt-4">두 세계를 잇다</p>
+          <SectionEyebrow label="Uniting pillar" labelKo="통일의 기둥" code="YSS-01" />
+          <h2 class="text-macro frame-bracket text-balance">The Admiral</h2>
+          <p class="font-ko text-sm text-[var(--muted)] mt-3">충무공 이순신</p>
         </div>
-        <p class="text-sm text-body bilingual text-pretty mt-8 lg:mt-0">
-          Korea and Canada share sovereignty, multicultural dignity, and the conviction that technology serves people.
-          <span class="ko block">한국과 캐나다는 주권, 다문화 존엄, 기술이 사람을 섬겨야 한다는 신념을 공유합니다.</span>
-        </p>
+        <div class="mt-8 lg:mt-auto">
+          <p class="text-sm text-body text-pretty">
+            Canonical in Pyongyang. Bronze at Gwanghwamun. One figure both halves of the nation already claim.
+          </p>
+          <p class="font-ko text-sm text-[var(--muted)] mt-3">평양에서도, 광화문 청동상에서도. 양쪽이 이미 공유하는 인물.</p>
+        </div>
       </div>
 
-      <div class="lg:col-span-5 relative min-h-[360px] halftone-img border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal reveal-delay-1">
-        <span class="crosshair-mark tl" aria-hidden="true">+</span>
-        <span class="crosshair-mark br" aria-hidden="true">+</span>
-        <img
-          src="/images/TurtleShip1795.jpg"
-          alt="Korean turtle ship, 1795 historical illustration"
-          width="600"
-          height="750"
-          loading="lazy"
-          class="absolute inset-0 w-full h-full"
-        />
+      <!-- Center: Primary portrait — bust as unifying pillar -->
+      <div class="lg:col-span-5 relative min-h-[380px] border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal reveal-delay-1 overflow-hidden">
+        <figure class="absolute inset-0">
+          <img
+            src="/images/admiral/yi-sun-sin-bust.jpg"
+            alt="Bronze bust of Admiral Yi Sun-sin — uniting pillar claimed by both sides of the peninsula"
+            width="1200"
+            height="1400"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover object-[50%_22%]"
+            style="filter: contrast(1.18) grayscale(0.28);"
+          />
+          <!-- refined print frame treatment (no crosshair targets) -->
+          <div class="absolute inset-0 border-2 border-[var(--ink)] pointer-events-none"></div>
+          <div class="absolute inset-[3px] border border-[var(--ink)]/40 pointer-events-none"></div>
+        </figure>
+
+        <div class="absolute bottom-0 left-0 right-0 bg-[var(--paper)]/95 border-t-2 border-[var(--ink)] p-4 sm:p-5 text-[0.65rem] font-mono-ui tracking-[0.08em] flex flex-wrap gap-x-4 gap-y-1 text-[var(--muted)]">
+          <span>1545-1598</span>
+          <span class="text-[var(--hazard)]">23 · 0</span>
+          <span>MYEONGNYANG 13 v 330</span>
+          <span>SOVEREIGN · NO SUBSIDY</span>
+        </div>
       </div>
 
-      <div class="lg:col-span-3 blueprint-grid grid-cols-1 reveal reveal-delay-2">
-        <article class="cell">
-          <samp class="tag-hazard mb-3">Korea</samp>
-          <h3 class="font-macro text-lg mb-2">One peninsula</h3>
-          <p class="font-ko text-xs text-[var(--muted)] mb-2">하나의 반도</p>
-          <p class="text-xs leading-relaxed">Five thousand years. Eighty million people. One language, one lineage — regardless of the 38th parallel.</p>
+      <!-- Right: Four masts / pillars of claim -->
+      <div class="lg:col-span-3 blueprint-grid grid-cols-1 reveal reveal-delay-2 text-[0.8rem]">
+        <article class="cell border-b border-[var(--ink)]/60">
+          <div class="flex items-baseline justify-between mb-1.5">
+            <samp class="font-mono-ui text-[var(--hazard)]">KOREA</samp>
+            <span class="font-mono-ui text-[10px] text-[var(--muted)]">BOTH</span>
+          </div>
+          <div class="font-macro text-[15px] leading-none mb-1">One peninsula</div>
+          <div class="font-ko text-[10px] text-[var(--muted)] mb-2">하나의 반도</div>
+          <p class="text-[11px] leading-snug">Five thousand years. One language. One lineage. North and south of the line.</p>
         </article>
-        <article class="cell">
-          <samp class="tag-hazard mb-3">Canada</samp>
-          <h3 class="font-macro text-lg mb-2">Pacific gateway</h3>
-          <p class="font-ko text-xs text-[var(--muted)] mb-2">태평양 관문</p>
-          <p class="text-xs leading-relaxed">Victoria, Vancouver, Langford. Diaspora meets civic infrastructure.</p>
+
+        <article class="cell border-b border-[var(--ink)]/60">
+          <div class="flex items-baseline justify-between mb-1.5">
+            <samp class="font-mono-ui text-[var(--hazard)]">CANADA</samp>
+            <span class="font-mono-ui text-[10px] text-[var(--muted)]">KC-01</span>
+          </div>
+          <div class="font-macro text-[15px] leading-none mb-1">Pacific corridor</div>
+          <div class="font-ko text-[10px] text-[var(--muted)] mb-2">태평양 회랑</div>
+          <p class="text-[11px] leading-snug">Victoria’s Johnson Street Bridge to the peninsula. Diaspora and infrastructure aligned.</p>
         </article>
+
         <article class="cell">
-          <samp class="tag-hazard mb-3">Heritage</samp>
-          <h3 class="font-macro text-lg mb-2">Yi Sun-sin</h3>
-          <p class="font-ko text-xs text-[var(--muted)] mb-2">이순신 · 23전 23승</p>
-          <p class="text-xs leading-relaxed">Bronze at Gwanghwamun, canonical in Pyongyang. Sovereign capability both halves already claim.</p>
+          <div class="flex items-baseline justify-between mb-1.5">
+            <samp class="font-mono-ui text-[var(--hazard)]">HERITAGE</samp>
+            <span class="font-mono-ui text-[10px] text-[var(--muted)]">23-0</span>
+          </div>
+          <div class="font-macro text-[15px] leading-none mb-1">The record</div>
+          <div class="font-ko text-[10px] text-[var(--muted)] mb-2">난중일기 · 23전 23승</div>
+          <p class="text-[11px] leading-snug">Undefeated at sea. No foreign subsidy. The precedent both Koreas already carry.</p>
         </article>
+      </div>
+    </div>
+
+    <!-- Kintsugi unity strip + bridge link (award craft detail row) -->
+    <div class="grid md:grid-cols-2 border-x-2 border-t-2 border-[var(--ink)]">
+      <div class="cell flex flex-col sm:flex-row gap-5 items-center border-b md:border-b-0 md:border-r-2 border-[var(--ink)]">
+        <div class="shrink-0 w-full sm:w-40">
+          <img 
+            src="/images/admiral/kintsugi-unity.jpg" 
+            alt="Kintsugi bowl — the mended vessel, metaphor for a peninsula repaired yet stronger in its seams"
+            width="640" 
+            height="480"
+            loading="lazy"
+            class="w-full h-auto border border-[var(--ink)] object-cover"
+          />
+        </div>
+        <div class="text-[0.8rem]">
+          <div class="font-mono-ui text-[10px] text-[var(--hazard)] mb-1">METAPHOR</div>
+          <p class="leading-snug">What is broken can be repaired with gold. The seams become the strength. One people. The die is cast.</p>
+          <p class="font-ko text-[var(--muted)] text-xs mt-1">깨진 것은 금으로 이어진다. 그 이음새가 힘이 된다.</p>
+        </div>
+      </div>
+
+      <div class="cell flex flex-col sm:flex-row gap-5 items-center">
+        <div class="shrink-0 w-full sm:w-40">
+          <img 
+            src="/images/admiral/johnson-street-bridge.jpg" 
+            alt="Johnson Street Bridge, Victoria BC — the Canadian anchor of the Pacific corridor"
+            width="640" 
+            height="360"
+            loading="lazy"
+            class="w-full h-auto border border-[var(--ink)] object-cover"
+          />
+        </div>
+        <div class="text-[0.8rem]">
+          <div class="font-mono-ui text-[10px] text-[var(--hazard)] mb-1">CORRIDOR</div>
+          <p class="leading-snug">Victoria, BC. The bridge that faces the Pacific. Same conviction that built turtle ships now builds the corridor.</p>
+          <p class="font-ko text-[var(--muted)] text-xs mt-1">빅토리아. 태평양을 향한 다리. 거북선을 만든 그 확신이 이제 회랑을 만든다.</p>
+        </div>
       </div>
     </div>
   </div>

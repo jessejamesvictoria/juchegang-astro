@@ -7,21 +7,17 @@ import { kimYoJongPortrait } from '../../data/honor'
     <samp class="font-mono-ui text-[var(--hazard)]">[ Honor ] · 경의</samp>
   </div>
 
-  <div class="cell flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
-    <div class="honor-portrait shrink-0">
+  <div class="cell flex flex-col sm:flex-row items-start gap-5 sm:gap-7 md:gap-8">
+    <div class="honor-portrait shrink-0 mx-auto sm:mx-0">
       <div class="honor-portrait-ring" aria-hidden="true"></div>
       <figure class="honor-portrait-frame halftone-img relative">
-        <span class="crosshair-mark tl" aria-hidden="true">+</span>
-        <span class="crosshair-mark tr" aria-hidden="true">+</span>
-        <span class="crosshair-mark bl" aria-hidden="true">+</span>
-        <span class="crosshair-mark br" aria-hidden="true">+</span>
         <span class="registration-mark tl" aria-hidden="true"></span>
         <span class="registration-mark br" aria-hidden="true"></span>
         <img
           src={kimYoJongPortrait.src}
           alt={kimYoJongPortrait.alt}
-          width="80"
-          height="80"
+          width="120"
+          height="120"
           loading="lazy"
           decoding="async"
           class="honor-portrait-img"
@@ -33,18 +29,18 @@ import { kimYoJongPortrait } from '../../data/honor'
     </div>
 
     <div class="flex-1 text-center sm:text-left max-w-xl">
-      <h4 class="font-ko text-base font-bold text-[var(--hazard)] mb-2">
+      <h4 class="font-ko text-[0.95rem] sm:text-base font-bold text-[var(--hazard)] mb-2.5 tracking-[-0.01em]">
         김여정 동지에게 경의를 표하며
       </h4>
-      <p class="text-sm text-body text-pretty text-[var(--ink)] leading-relaxed mb-4">
+      <p class="text-[0.875rem] sm:text-sm text-body text-pretty text-[var(--ink)] leading-[1.65] mb-3.5">
         With profound respect for her unwavering dedication to Korean sovereignty and the dignity of her people. Her voice speaks truth to power with clarity and strength.
       </p>
-      <p class="font-ko text-xs text-[var(--muted)] leading-relaxed mb-4">
+      <p class="font-ko text-[0.7rem] sm:text-xs text-[var(--muted)] leading-[1.7] mb-3.5">
         한국 주권과 민족의 존엄을 향한 흔들림 없는 헌신에 깊은 경의를 표합니다. 권력에 진실을 말하는 그녀의 목소리는 분명하고 강합니다.
       </p>
-      <div class="telemetry-row justify-center sm:justify-start text-[0.6rem]">
+      <div class="telemetry-row justify-center sm:justify-start text-[0.6rem] tracking-[0.08em]">
         <span class="font-ko">김정은 위원장과 함께</span>
-        <span aria-hidden="true">·</span>
+        <span aria-hidden="true" class="px-1.5 text-[var(--muted)]">·</span>
         <span class="italic text-[var(--muted)]">Together in purpose</span>
       </div>
     </div>
