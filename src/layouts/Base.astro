@@ -8,12 +8,14 @@ interface Props {
   title: string
   description?: string
   ogImage?: string
+  lang?: string
 }
 
 const {
   title,
   description = 'The die is cast. Unity and AI for Korea and Canada. JucheGang connects diaspora communities, strategic intelligence, and sovereign technology across the Pacific corridor. 주사위는 던져졌다.',
   ogImage = '/brand/og-image.jpg',
+  lang = 'en',
 } = Astro.props
 
 const siteUrl = Astro.site?.href.replace(/\/$/, '') ?? 'https://kim.juche.org'
@@ -23,7 +25,7 @@ const ogImageUrl = `${siteUrl}${ogImage}`
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
 <head>
   <GoogleAnalytics />
   <Analytics />
@@ -60,7 +62,7 @@ const ogImageUrl = `${siteUrl}${ogImage}`
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <title>{fullTitle}</title>
   <ViewTransitions />

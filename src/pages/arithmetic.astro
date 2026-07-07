@@ -7,29 +7,20 @@
  *
  * Bilingual content: Korean (한국어) + English
  */
+import Base from '../layouts/Base.astro'
 import Header from '../components/static/Header.astro'
 import Footer from '../components/static/Footer.astro'
-import GoogleAnalytics from '../components/static/GoogleAnalytics.astro'
 ---
 
-<!DOCTYPE html>
-<html lang="ko" class="dark">
-<head>
-  <GoogleAnalytics />
+<Base
+  title="한민족: The Arithmetic of Excellence"
+  description="한민족: The Arithmetic of Excellence - Analysis of Korean achievements North and South"
+  lang="ko"
+>
+  <a href="#main-content" class="sr-only">Skip to content</a>
+  <Header />
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="한민족: The Arithmetic of Excellence - Analysis of Korean achievements North and South" />
-  <link rel="canonical" href="https://kim.juche.org/arithmetic" />
-
-  <title>한민족: The Arithmetic of Excellence | Juche GanG</title>
-
-  <!-- Fonts for this page -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Chart.js -->
+  <!-- Chart.js (load early for inline scripts) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js" is:inline></script>
 
   <style is:global>
@@ -37,6 +28,12 @@ import GoogleAnalytics from '../components/static/GoogleAnalytics.astro'
       font-family: 'Noto Sans KR', sans-serif;
       background-color: #050505;
       color: #e4e4e7;
+    }
+
+    /* Preserve page's dark theme selection */
+    ::selection {
+      background-color: #7f1d1d;
+      color: #fff;
     }
 
     .eng-header {
@@ -77,14 +74,15 @@ import GoogleAnalytics from '../components/static/GoogleAnalytics.astro'
       font-weight: 900;
       letter-spacing: -0.02em;
     }
+
+    /* Hide site grain/noise for this page's clean dark aesthetic */
+    .noise-overlay {
+      display: none !important;
+    }
   </style>
-</head>
 
-<body class="selection:bg-red-900 selection:text-white">
-  <Header />
-
-  <!-- Header Section -->
-  <header class="relative border-b border-gray-800 bg-zinc-950 pt-20 pb-16 px-6">
+  <!-- Header Section (spacer provided by <Header /> component using --header-h) -->
+  <header id="main-content" class="relative border-b border-gray-800 bg-zinc-950 pb-16 px-6">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-gradient-to-b from-red-900/20 via-transparent to-blue-900/10 blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto text-center relative z-10">
@@ -502,5 +500,4 @@ import GoogleAnalytics from '../components/static/GoogleAnalytics.astro'
       });
     });
   </script>
-</body>
-</html>
+</Base>
