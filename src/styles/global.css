@@ -944,7 +944,7 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
   margin-top: 0;
 }
 
-/* Current section — prevent laptop wrapping in stat panels */
+/* Current section: prevent laptop wrapping in stat panels */
 .current-panel-body > * {
   min-width: 0;
 }
@@ -1029,7 +1029,7 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
   background: var(--paper);
 }
 
-/* Award-level fluid portrait treatment — scales beautifully from 320px phones to large desktop */
+/* Award-level fluid portrait treatment: scales beautifully from 320px phones to large desktop */
 .honor-portrait {
   position: relative;
   width: clamp(4.25rem, 13.5vw, 6.75rem);
