@@ -1,0 +1,323 @@
+---
+import Base from '../layouts/Base.astro'
+import Header from '../components/static/Header.astro'
+import Footer from '../components/static/Footer.astro'
+import SectionEyebrow from '../components/static/SectionEyebrow.astro'
+import {
+  asset,
+  explorerUrl,
+  isConfigured,
+  network,
+  paymentUri,
+  presetAmounts,
+  qrPath,
+  qrSlug,
+  recipientAddress,
+  x402Facilitator,
+} from '../data/support'
+
+const variants = [
+  { amount: undefined, label: 'Any amount', slug: qrSlug() },
+  ...presetAmounts.map((amount) => ({
+    amount,
+    label: `$${amount}`,
+    slug: qrSlug(amount),
+  })),
+]
+---
+
+<Base
+  title="Support"
+  description="Direct support for JucheGang research and briefings. USDC on Base, wallet to wallet — no platform, no processor, no percentage."
+>
+  <a href="#main-content" class="sr-only">Skip to content</a>
+  <Header />
+
+  <main id="main-content">
+    <section class="border-b-2 border-[var(--ink)]">
+      <div class="container-app">
+        <div class="border-x-2 border-[var(--ink)] cell reveal visible">
+          <SectionEyebrow label="Support" labelKo="후원" code="SUP-01" />
+          <h1 class="text-macro mb-6 text-balance max-w-4xl">Direct support</h1>
+          <p class="text-body text-pretty">
+            No platform, no processor, no percentage. A wallet address and a code that
+            points at it. If the work is worth something to you, the amount is yours
+            to decide — and nothing sits between the two of us to take a cut, hold the
+            funds, or reverse them later.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {isConfigured ? (
+      <section class="border-b-2 border-[var(--ink)]">
+        <div class="container-app">
+          <div class="grid lg:grid-cols-2 border-x-2 border-[var(--ink)]">
+
+            <!-- Scan panel -->
+            <div class="cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+              <SectionEyebrow label="Scan to pay" labelKo="스캔" code="SUP-02" />
+
+              <div
+                class="flex flex-wrap gap-0 border-2 border-[var(--ink)] mb-6"
+                role="group"
+                aria-label="Payment amount"
+                id="amount-group"
+              >
+                {variants.map((variant, index) => (
+                  <button
+                    type="button"
+                    class="qr-amount flex-1 min-w-[5rem] font-mono-ui px-3 py-3 border-r-2 border-[var(--ink)] last:border-r-0 transition-colors duration-250"
+                    data-slug={variant.slug}
+                    aria-pressed={index === 0 ? 'true' : 'false'}
+                  >
+                    {variant.label}
+                  </button>
+                ))}
+              </div>
+
+              <figure class="border-2 border-[var(--ink)] p-4 sm:p-6 bg-[var(--paper)]">
+                <div class="mx-auto w-full max-w-[19rem]">
+                  {variants.map((variant, index) => (
+                    <img
+                      class="qr-image w-full h-auto block"
+                      src={qrPath(variant.amount)}
+                      alt={
+                        variant.amount === undefined
+                          ? `QR code to send any amount of ${asset.symbol} on ${network.name}`
+                          : `QR code to send $${variant.amount} ${asset.symbol} on ${network.name}`
+                      }
+                      data-slug={variant.slug}
+                      hidden={index !== 0}
+                      width="320"
+                      height="320"
+                      decoding="async"
+                    />
+                  ))}
+                </div>
+                <figcaption class="font-mono-ui text-[var(--muted)] text-center mt-4">
+                  <span id="qr-caption">{network.name} · {asset.symbol} · any amount</span>
+                </figcaption>
+              </figure>
+
+              <div class="mt-6 border-2 border-[var(--ink)]">
+                <p class="font-mono-ui text-[var(--muted)] px-4 pt-3">Address</p>
+                <p
+                  class="px-4 pb-3 font-mono text-[0.7rem] sm:text-[0.78rem] break-all leading-relaxed select-all"
+                  id="pay-address"
+                >{recipientAddress}</p>
+                <button
+                  type="button"
+                  id="copy-address"
+                  class="btn-primary w-full border-0 border-t-2 border-[var(--ink)]"
+                  data-address={recipientAddress}
+                >
+                  <span data-copy-label>Copy address</span>
+                  <span class="btn-icon-box" aria-hidden="true">&gt;&gt;</span>
+                </button>
+              </div>
+              <p class="font-mono-ui text-[var(--muted)] mt-3 leading-relaxed" role="status" id="copy-status"></p>
+
+              <a
+                href={paymentUri()}
+                class="btn-hazard w-full mt-3"
+              >
+                Open in wallet
+                <span class="btn-icon-box" aria-hidden="true">&gt;&gt;</span>
+              </a>
+            </div>
+
+            <!-- Detail panel -->
+            <div class="cell reveal reveal-delay-1">
+              <SectionEyebrow label="Details" labelKo="세부" code="SUP-03" />
+
+              <dl class="border-2 border-[var(--ink)] mb-8">
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                  <dt class="font-mono-ui text-[var(--muted)]">Network</dt>
+                  <dd class="font-mono-ui text-[0.65rem]">{network.name} · chain {network.chainId}</dd>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                  <dt class="font-mono-ui text-[var(--muted)]">Asset</dt>
+                  <dd class="font-mono-ui text-[0.65rem]">{asset.symbol} · 1 {asset.symbol} = 1 USD</dd>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                  <dt class="font-mono-ui text-[var(--muted)]">Fee</dt>
+                  <dd class="font-mono-ui text-[0.65rem]">Under one cent of network gas</dd>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                  <dt class="font-mono-ui text-[var(--muted)]">Settles</dt>
+                  <dd class="font-mono-ui text-[0.65rem]">20 confirmations · about one minute</dd>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                  <dt class="font-mono-ui text-[var(--muted)]">Minimum</dt>
+                  <dd class="font-mono-ui text-[0.65rem]">0.01 {asset.symbol}</dd>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3">
+                  <dt class="font-mono-ui text-[var(--muted)]">Ledger</dt>
+                  <dd>
+                    <a
+                      href={explorerUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-mono-ui text-[0.65rem] text-[var(--ink)] no-underline hover:text-[var(--hazard)]"
+                    >View on Basescan</a>
+                  </dd>
+                </div>
+              </dl>
+
+              <h2 class="text-section frame-angle mb-4">What it funds</h2>
+              <ul class="text-body text-sm space-y-2 text-pretty mb-8">
+                <li>Primary-source research and the briefings built on it.</li>
+                <li>Korean translation, so the argument reaches both sides of the line.</li>
+                <li>Hosting, archives, and keeping published work reachable.</li>
+                <li>The open-source tooling underneath all of it.</li>
+              </ul>
+
+              <h2 class="text-section frame-angle mb-4">Sending it</h2>
+              <ol class="text-body text-sm space-y-2 text-pretty list-none">
+                <li><span class="font-mono-ui text-[var(--hazard)] mr-2">01</span>Pick an amount, or leave it open.</li>
+                <li><span class="font-mono-ui text-[var(--hazard)] mr-2">02</span>Scan the code with any wallet — Coinbase, Rainbow, MetaMask, Trust.</li>
+                <li><span class="font-mono-ui text-[var(--hazard)] mr-2">03</span>Confirm. The code already carries the network and the token, so there is nothing to select by hand.</li>
+              </ol>
+
+              <p class="text-body text-sm text-pretty mt-6 text-[var(--muted)]">
+                No account is created, no email is collected, and nothing about the
+                payment is recorded on this site. The transaction is public on
+                {' '}{network.name}, as every transaction on a public chain is.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- x402 -->
+      <section class="border-b-2 border-[var(--ink)]">
+        <div class="container-app">
+          <div class="border-x-2 border-[var(--ink)] cell reveal">
+            <SectionEyebrow label="For machines" labelKo="기계" code="SUP-04" />
+            <h2 class="text-section frame-angle mb-4">Machine-payable</h2>
+            <p class="text-body text-pretty mb-6">
+              The same address is reachable over
+              {' '}<a href="https://www.x402.org" target="_blank" rel="noopener noreferrer" class="link-text">x402</a>,
+              the open standard for charging over HTTP with stablecoins. An
+              autonomous agent that wants to pay for something here does not need an
+              account, a card, or a human in the loop — it reads the 402 response and
+              settles on-chain.
+            </p>
+            <pre class="border-2 border-[var(--ink)] p-4 overflow-x-auto text-[0.7rem] leading-relaxed"><code>curl -X POST {x402Facilitator}/support \
+  -H 'Content-Type: application/json' \
+  -d '&#123;"amount": 5, "note": "briefings"&#125;'</code></pre>
+            <p class="font-mono-ui text-[var(--muted)] mt-4 leading-relaxed">
+              Returns HTTP 402 with the payment challenge, the address, and the same
+              EIP-681 URI encoded in the codes above.
+            </p>
+          </div>
+        </div>
+      </section>
+    ) : (
+      <section class="border-b-2 border-[var(--ink)]">
+        <div class="container-app">
+          <div class="border-x-2 border-[var(--ink)] cell">
+            <div class="border-2 border-[var(--hazard)] cell">
+              <samp class="font-mono-ui text-[var(--hazard)] block mb-3">Not configured</samp>
+              <p class="text-body text-sm text-pretty">
+                No payment address has been set. Add one to
+                {' '}<code class="font-mono text-[0.75rem]">src/data/support.config.json</code>{' '}
+                and run <code class="font-mono text-[0.75rem]">npm run qr</code> to
+                generate the codes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .qr-amount {
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .qr-amount:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .qr-amount[aria-pressed='true'] {
+    background: var(--hazard);
+    color: var(--paper);
+  }
+
+  .qr-amount:focus-visible {
+    outline: 2px solid var(--hazard);
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  function initSupport() {
+    const group = document.getElementById('amount-group')
+    if (!group) return
+
+    const buttons = Array.from(
+      group.querySelectorAll<HTMLButtonElement>('.qr-amount')
+    )
+    const images = Array.from(
+      document.querySelectorAll<HTMLImageElement>('.qr-image')
+    )
+    const caption = document.getElementById('qr-caption')
+    const captionBase = caption?.dataset.base ?? caption?.textContent ?? ''
+
+    if (caption && !caption.dataset.base) {
+      // Remember the network/asset prefix so the amount can be swapped in later.
+      caption.dataset.base = captionBase.replace(/·[^·]*$/, '').trim()
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const slug = button.dataset.slug
+        buttons.forEach((other) =>
+          other.setAttribute('aria-pressed', String(other === button))
+        )
+        images.forEach((image) => {
+          image.hidden = image.dataset.slug !== slug
+        })
+        if (caption) {
+          const label = button.textContent?.trim().toLowerCase() ?? ''
+          caption.textContent = `${caption.dataset.base} · ${label}`
+        }
+      })
+    })
+
+    const copyButton = document.getElementById('copy-address') as HTMLButtonElement | null
+    const status = document.getElementById('copy-status')
+
+    copyButton?.addEventListener('click', async () => {
+      const address = copyButton.dataset.address ?? ''
+      const label = copyButton.querySelector('[data-copy-label]')
+      try {
+        await navigator.clipboard.writeText(address)
+        if (label) label.textContent = 'Copied'
+        if (status) status.textContent = 'Address copied to clipboard.'
+        window.setTimeout(() => {
+          if (label) label.textContent = 'Copy address'
+        }, 2400)
+      } catch {
+        // Clipboard is unavailable over plain HTTP and in some locked-down
+        // browsers. The address is select-all above, so say so rather than
+        // failing silently.
+        if (status) {
+          status.textContent = 'Could not copy automatically — tap the address to select it.'
+        }
+      }
+    })
+  }
+
+  initSupport()
+  document.addEventListener('astro:page-load', initSupport)
+</script>
