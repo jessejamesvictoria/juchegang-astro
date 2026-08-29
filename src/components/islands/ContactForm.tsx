@@ -57,7 +57,7 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="border-2 border-[var(--ink)] p-6" role="status">
+      <div className="border border-[var(--rule)] p-6" role="status">
         <p className="font-macro text-lg mb-2">Message ready</p>
         <p className="text-sm text-[var(--muted)] text-body">
           Your email client should open. If it did not, write to{' '}

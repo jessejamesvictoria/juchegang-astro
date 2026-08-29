@@ -3,14 +3,14 @@ import { dieCast } from '../../data/manifesto'
 import SectionEyebrow from './SectionEyebrow.astro'
 ---
 
-<section id="manifesto" class="border-b-2 border-[var(--ink)]">
+<section id="manifesto" class="border-b border-[var(--rule)]">
   <div class="hazard-stripe" aria-hidden="true"></div>
   <div class="container-app">
-    <div class="grid lg:grid-cols-12 border-x-2 border-[var(--ink)] blueprint-canvas relative">
+    <div class="grid lg:grid-cols-12 border-x border-[var(--rule)] blueprint-canvas relative">
       <span class="registration-mark tl" aria-hidden="true"></span>
       <span class="registration-mark br" aria-hidden="true"></span>
 
-      <div class="lg:col-span-5 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+      <div class="lg:col-span-5 cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
         <SectionEyebrow label={`${dieCast.date} / Rubicon`} labelKo="루비콘" code="MAN-01" />
         <h2 class="text-macro text-balance frame-bracket">{dieCast.english}</h2>
         <p class="font-macro text-xl text-[var(--hazard)] mt-4">{dieCast.latin}</p>
@@ -18,7 +18,7 @@ import SectionEyebrow from './SectionEyebrow.astro'
         <p class="font-ko text-sm text-[var(--muted)] mt-2">{dieCast.idiomKo}</p>
       </div>
 
-      <div class="lg:col-span-4 relative min-h-[320px] halftone-img border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal reveal-delay-1">
+      <div class="lg:col-span-4 relative min-h-[320px] halftone-img border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal reveal-delay-1">
         <span class="crosshair-mark tl" aria-hidden="true">+</span>
         <span class="crosshair-mark br" aria-hidden="true">+</span>
         <img
@@ -38,12 +38,12 @@ import SectionEyebrow from './SectionEyebrow.astro'
             <span class="ko block">{dieCast.meaningKo}</span>
           </p>
         </div>
-        <dl class="mt-8 space-y-0 border-2 border-[var(--ink)]">
-          <div class="grid grid-cols-[auto_1fr] gap-3 px-3 py-2 border-b-2 border-[var(--ink)]">
+        <dl class="mt-8 space-y-0 border border-[var(--rule)]">
+          <div class="grid grid-cols-[auto_1fr] gap-3 px-3 py-2 border-b border-[var(--rule)]">
             <dt class="font-mono-ui text-[var(--muted)]">Origin</dt>
             <dd class="font-mono-ui text-[0.6rem]">{dieCast.event}</dd>
           </div>
-          <div class="grid grid-cols-[auto_1fr] gap-3 px-3 py-2 border-b-2 border-[var(--ink)]">
+          <div class="grid grid-cols-[auto_1fr] gap-3 px-3 py-2 border-b border-[var(--rule)]">
             <dt class="font-mono-ui text-[var(--muted)]">한국어</dt>
             <dd class="font-ko text-xs">{dieCast.eventKo}</dd>
           </div>

@@ -3,10 +3,10 @@ import ContactForm from '../islands/ContactForm'
 import SectionEyebrow from './SectionEyebrow.astro'
 ---
 
-<section id="contact" class="border-b-2 border-[var(--ink)]">
+<section id="contact" class="border-b border-[var(--rule)]">
   <div class="container-app">
-    <div class="grid lg:grid-cols-2 border-x-2 border-[var(--ink)]">
-      <div class="cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+    <div class="grid lg:grid-cols-2 border-x border-[var(--rule)]">
+      <div class="cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
         <SectionEyebrow label="Contact" labelKo="연락하기" code="CNT-01" />
 
         <div class="flex items-center gap-3 mb-5">
@@ -17,9 +17,9 @@ import SectionEyebrow from './SectionEyebrow.astro'
               width="56" 
               height="56" 
               loading="lazy"
-              class="w-11 h-11 sm:w-12 sm:h-12 border border-[var(--ink)] object-cover"
+              class="w-11 h-11 sm:w-12 sm:h-12 border border-[var(--rule)] object-cover"
             />
-            <div class="absolute inset-0 border border-[var(--ink)]/30 pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute inset-0 border border-[var(--rule)]/30 pointer-events-none" aria-hidden="true"></div>
           </div>
           <div>
             <h2 class="text-section frame-angle leading-none mb-0.5">Jesse James</h2>
@@ -27,16 +27,16 @@ import SectionEyebrow from './SectionEyebrow.astro'
           </div>
         </div>
 
-        <dl class="space-y-0 border-2 border-[var(--ink)]">
-          <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+        <dl class="space-y-0 border border-[var(--rule)]">
+          <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b border-[var(--rule)]">
             <dt class="font-mono-ui text-[var(--muted)]">Email</dt>
             <dd><a href="mailto:panda@juche.org" class="font-mono-ui text-[0.65rem] text-[var(--ink)] no-underline hover:text-[var(--hazard)]">panda@juche.org</a></dd>
           </div>
-          <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+          <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b border-[var(--rule)]">
             <dt class="font-mono-ui text-[var(--muted)]">Phone</dt>
             <dd><a href="tel:+12504155678" class="font-mono-ui text-[0.65rem] text-[var(--ink)] no-underline hover:text-[var(--hazard)]">+1 (250) 415-5678</a></dd>
           </div>
-          <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+          <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b border-[var(--rule)]">
             <dt class="font-mono-ui text-[var(--muted)]">Location</dt>
             <dd class="font-mono-ui text-[0.65rem]">Victoria, BC, Canada</dd>
           </div>

@@ -4,16 +4,16 @@ import SectionEyebrow from './SectionEyebrow.astro'
 import CurrentPanel from './CurrentPanel.astro'
 ---
 
-<section id="current" class="border-b-2 border-[var(--ink)]">
+<section id="current" class="border-b border-[var(--rule)]">
   <div class="hazard-stripe" aria-hidden="true"></div>
   <div class="container-app">
-    <div class="border-x-2 border-[var(--ink)] blueprint-canvas relative">
+    <div class="border-x border-[var(--rule)] blueprint-canvas relative">
       <span class="registration-mark tl" aria-hidden="true"></span>
       <span class="registration-mark tr" aria-hidden="true"></span>
 
       <!-- Unity thesis -->
-      <div class="grid lg:grid-cols-2 xl:grid-cols-12 border-b-2 border-[var(--ink)]">
-        <div class="lg:col-span-1 xl:col-span-7 cell min-w-0 border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+      <div class="grid lg:grid-cols-2 xl:grid-cols-12 border-b border-[var(--rule)]">
+        <div class="lg:col-span-1 xl:col-span-7 cell min-w-0 border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
           <SectionEyebrow label="The Current" labelKo="주체강" code="OR-7394" />
           <h2 class="text-macro frame-bracket text-balance">{unityThesis.headline}</h2>
           <p class="font-ko text-sm text-[var(--muted)] mt-3">{unityThesis.headlineKo}</p>
@@ -40,12 +40,12 @@ import CurrentPanel from './CurrentPanel.astro'
       ))}
 
       <!-- Yi Sun-sin inheritance -->
-      <div class="border-t-2 border-[var(--ink)]">
+      <div class="border-t border-[var(--rule)]">
         <div class="compartment-header">
           <samp class="font-mono-ui text-[var(--hazard)]">Inheritance · 유산 · 이순신</samp>
         </div>
         <div class="grid lg:grid-cols-12">
-          <div class="lg:col-span-4 relative min-h-[280px] halftone-img border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+          <div class="lg:col-span-4 relative min-h-[280px] halftone-img border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
             <span class="crosshair-mark tl" aria-hidden="true">+</span>
             <span class="crosshair-mark br" aria-hidden="true">+</span>
             <img
@@ -58,15 +58,15 @@ import CurrentPanel from './CurrentPanel.astro'
             />
           </div>
 
-          <div class="lg:col-span-4 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal reveal-delay-1">
+          <div class="lg:col-span-4 cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal reveal-delay-1">
             <h3 class="font-macro text-xl">{yiSunSin.name}</h3>
             <p class="font-ko text-sm text-[var(--hazard)] mt-1">{yiSunSin.nameKo} · {yiSunSin.years}</p>
-            <dl class="mt-6 space-y-0 border-2 border-[var(--ink)]">
-              <div class="grid grid-cols-[auto_1fr] gap-3 px-3 py-2 border-b-2 border-[var(--ink)]">
+            <dl class="mt-6 space-y-0 border border-[var(--rule)]">
+              <div class="grid grid-cols-[auto_1fr] gap-3 px-3 py-2 border-b border-[var(--rule)]">
                 <dt class="font-mono-ui text-[var(--muted)]">Record</dt>
                 <dd class="font-mono-ui text-[0.6rem]">{yiSunSin.record}</dd>
               </div>
-              <div class="grid grid-cols-[auto_1fr] gap-3 px-3 py-2 border-b-2 border-[var(--ink)]">
+              <div class="grid grid-cols-[auto_1fr] gap-3 px-3 py-2 border-b border-[var(--rule)]">
                 <dt class="font-mono-ui text-[var(--muted)]">명량</dt>
                 <dd class="font-mono-ui text-[0.6rem]">{yiSunSin.myeongnyang}</dd>
               </div>
@@ -82,7 +82,7 @@ import CurrentPanel from './CurrentPanel.astro'
           </div>
 
           <div class="lg:col-span-4 grid grid-rows-2 reveal reveal-delay-2">
-            <figure class="relative halftone-img min-h-[200px] border-b-2 border-[var(--ink)]">
+            <figure class="relative halftone-img min-h-[200px] border-b border-[var(--rule)]">
               <img
                 src={yiSunSin.turtleImage}
                 alt={yiSunSin.turtleAlt}
@@ -91,7 +91,7 @@ import CurrentPanel from './CurrentPanel.astro'
                 loading="lazy"
                 class="absolute inset-0 w-full h-full"
               />
-              <figcaption class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-[var(--paper)] border-t border-[var(--ink)]">
+              <figcaption class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-[var(--paper)] border-t border-[var(--rule)]">
                 <samp class="tag-hazard text-[0.55rem]">Geobukseon</samp>
                 <p class="font-mono-ui text-[0.55rem] mt-1">Turtle ship · 1795</p>
               </figcaption>
@@ -105,7 +105,7 @@ import CurrentPanel from './CurrentPanel.astro'
                 loading="lazy"
                 class="absolute inset-0 w-full h-full"
               />
-              <figcaption class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-[var(--paper)] border-t border-[var(--ink)]">
+              <figcaption class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-[var(--paper)] border-t border-[var(--rule)]">
                 <samp class="tag-ink text-[0.55rem]">Archive</samp>
                 <p class="font-mono-ui text-[0.55rem] mt-1">Nanjung Ilgi · 1592-1598</p>
               </figcaption>
@@ -113,8 +113,8 @@ import CurrentPanel from './CurrentPanel.astro'
           </div>
         </div>
 
-        <div class="grid lg:grid-cols-2 border-t-2 border-[var(--ink)]">
-          <div class="cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+        <div class="grid lg:grid-cols-2 border-t border-[var(--rule)]">
+          <div class="cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
             <p class="text-sm text-body bilingual text-pretty">
               {yiSunSin.turtleShip}
               <span class="ko block">{yiSunSin.turtleShipKo}</span>
@@ -130,12 +130,12 @@ import CurrentPanel from './CurrentPanel.astro'
       </div>
 
       <!-- Coda: resources -->
-      <div class="border-t-2 border-[var(--ink)]">
+      <div class="border-t border-[var(--rule)]">
         <div class="compartment-header">
           <samp class="font-mono-ui text-[var(--hazard)]">Coda · 산술 · Navigate the Current</samp>
         </div>
-        <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)]">
-          <div class="lg:col-span-5 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+        <div class="grid lg:grid-cols-12 border-b border-[var(--rule)]">
+          <div class="lg:col-span-5 cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
             <h3 class="text-section">Pride is the why. This is the how much.</h3>
             <p class="font-ko text-sm text-[var(--muted)] mt-2">자부심이 이유라면, 이것이 규모입니다.</p>
             <p class="text-sm text-body bilingual text-pretty mt-4">
@@ -147,7 +147,7 @@ import CurrentPanel from './CurrentPanel.astro'
                 <span class="btn-primary flex-1 sm:flex-none text-center border-0">Report 7394-K</span>
                 <span class="btn-icon-box" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
-              <a href="/the-current" class="btn-group w-full sm:w-auto border-t-2 sm:border-t-0 sm:-ml-[2px]">
+              <a href="/the-current" class="btn-group w-full sm:w-auto border-t sm:border-t-0 sm:-ml-[2px]">
                 <span class="btn-hazard flex-1 sm:flex-none text-center border-0">The Current</span>
                 <span class="btn-icon-box" aria-hidden="true">+</span>
               </a>

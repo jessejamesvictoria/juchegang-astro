@@ -13,7 +13,7 @@ const { panel, panelIndex, isLast } = Astro.props
 <article
   id={panel.id}
   class:list={[
-    'border-b-2 border-[var(--ink)]',
+    'border-b border-[var(--rule)]',
     isLast && 'border-b-0',
   ]}
 >
@@ -23,11 +23,11 @@ const { panel, panelIndex, isLast } = Astro.props
     </samp>
   </div>
 
-  <div class="current-panel-body grid lg:grid-cols-2 xl:grid-cols-12 border-b-2 border-[var(--ink)]">
+  <div class="current-panel-body grid lg:grid-cols-2 xl:grid-cols-12 border-b border-[var(--rule)]">
     <div class:list={[
-      'current-panel-intro cell min-w-0 border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal',
+      'current-panel-intro cell min-w-0 border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal',
       'lg:col-span-1 xl:col-span-4',
-      panelIndex % 2 === 1 && 'lg:order-2 xl:order-2 lg:border-r-0 lg:border-l-2 xl:border-l-2 xl:border-r-0',
+      panelIndex % 2 === 1 && 'lg:order-2 xl:order-2 lg:border-r-0 lg:border-l xl:border-l xl:border-r-0',
     ]}>
       <h3 class="current-panel-title text-section frame-bracket text-balance">{panel.title}</h3>
       <p class="font-ko text-sm text-[var(--muted)] mt-2">{panel.titleKo}</p>

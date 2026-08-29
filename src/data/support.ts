@@ -47,7 +47,7 @@ export function qrPath(amount?: number): string {
  *
  * The target of the URI is the TOKEN CONTRACT and the recipient is the
  * `address` argument to transfer(). Putting the recipient in the target slot
- * with a `value` parameter — the shape that looks intuitive — instead asks the
+ * with a `value` parameter, the shape that looks intuitive, instead asks the
  * wallet to send native ETH, which is how these links quietly deliver nothing.
  *
  * Naming the chain and the token in the URI also stops the most common way a
@@ -64,7 +64,7 @@ export function explorerUrl(): string {
   return `${network.explorer}/address/${recipientAddress}`
 }
 
-/** 0x14E6…4D54 — long addresses, shortened for display without losing the ends. */
+/** 0x14E6…4D54, long addresses, shortened for display without losing the ends. */
 export function truncateAddress(address: string): string {
   return address.length > 14
     ? `${address.slice(0, 8)}…${address.slice(-6)}`
