@@ -4,68 +4,175 @@ import { navItems } from '../../data/navigation'
 
 const currentPath = Astro.url.pathname
 const isHome = currentPath === '/'
-const getHref = (href: string) => (href.startsWith('#') && !isHome ? `/${href}` : href)
+const getHref = (href: string) =>
+  href.startsWith('#') && !isHome ? `/${href}` : href
 ---
 
-<header class="fixed top-0 left-0 right-0 z-[var(--z-nav)] border-b-2 border-[var(--ink)] bg-[var(--paper)]">
-  <div class="barcode-strip" aria-hidden="true"></div>
+<header class="site-header">
   <div class="container-app">
-    <div class="flex items-stretch justify-between min-h-[var(--nav-h)] border-x-2 border-[var(--ink)]">
-      <a href="/" class="flex items-center gap-3 no-underline text-inherit py-3 px-4 border-r-2 border-[var(--ink)] group" aria-label="JucheGang home">
-        <img src="/brand/mark.svg" alt="" width="32" height="32" aria-hidden="true" class="transition-transform duration-500" style="transition-timing-function: var(--ease-premium)" />
-        <span class="font-macro text-sm hidden sm:inline">JucheGang</span>
-        <span class="structural-mark hidden md:inline" aria-hidden="true">®</span>
+    <div class="flex items-center justify-between min-h-[var(--nav-h)] gap-6">
+      <a href="/" class="brand-lockup" aria-label="주체강 home">
+        <img
+          src="/brand/rose-mark.png"
+          alt=""
+          width="34"
+          height="34"
+          aria-hidden="true"
+          class="brand-mark"
+        />
+        <span class="brand-name font-ko">주체강</span>
       </a>
 
-      <nav class="hidden lg:flex items-stretch flex-1 justify-end" aria-label="Main navigation">
-        {navItems.map(item => (
+      <nav class="hidden lg:flex items-center gap-9" aria-label="Main navigation">
+        {navItems.map((item) => (
           <a
             href={getHref(item.href)}
             data-nav-section={item.section}
-            class="nav-link font-mono-ui flex items-center px-5 no-underline border-l-2 border-[var(--ink)] text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)]"
+            class="nav-link"
           >
-            {item.label}
+            <span class="font-ko nav-ko">{item.label}</span>
+            <span class="nav-en">{item.labelEn}</span>
           </a>
         ))}
-        <a href={getHref('#contact')} class="btn-group border-l-2 border-[var(--ink)]">
-          <span class="font-mono-ui flex items-center px-5 bg-[var(--hazard)] text-[var(--paper)]">Connect</span>
-          <span class="btn-icon-box bg-[var(--hazard)] text-[var(--paper)] border-l-[var(--ink)]" aria-hidden="true">&gt;&gt;&gt;</span>
-        </a>
       </nav>
 
-      <details class="mobile-menu lg:hidden flex items-center border-l-2 border-[var(--ink)]">
-        <summary class="font-mono-ui px-5 py-4 cursor-pointer" aria-label="Open menu">Menu</summary>
-        <nav class="p-0">
-          <div class="flex items-center justify-between px-6 py-4 border-b-2 border-[var(--ink)]">
-            <span class="font-macro text-sm">Navigation</span>
-            <button type="button" onclick="this.closest('details').removeAttribute('open')" class="font-mono-ui cursor-pointer bg-transparent border-0 p-2" aria-label="Close menu">Close</button>
+      <details class="mobile-menu lg:hidden">
+        <summary class="font-mono-ui px-4 py-3 cursor-pointer" aria-label="Open menu">Menu</summary>
+        <nav>
+          <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--gold)]/25">
+            <span class="font-ko text-base">주체강</span>
+            <button
+              type="button"
+              onclick="this.closest('details').removeAttribute('open')"
+              class="font-mono-ui cursor-pointer bg-transparent border-0 p-2 text-[var(--mist)]"
+              aria-label="Close menu"
+            >Close</button>
           </div>
-          <ul class="divide-y-2 divide-[var(--ink)]">
-            {navItems.map(item => (
+          <ul>
+            {navItems.map((item) => (
               <li>
                 <a
                   href={getHref(item.href)}
                   data-nav-section={item.section}
-                  class="block font-mono-ui px-6 py-4 no-underline text-[var(--ink)] hover:bg-[var(--hazard)] hover:text-[var(--paper)]"
+                  class="mobile-link"
                   onclick="this.closest('details').removeAttribute('open')"
                 >
-                  {item.label}
+                  <span class="font-ko">{item.label}</span>
+                  <span class="nav-en">{item.labelEn}</span>
                 </a>
               </li>
             ))}
           </ul>
-          <div class="p-6 border-t-2 border-[var(--ink)]">
-            <a href={getHref('#contact')} class="btn-group w-full" onclick="this.closest('details').removeAttribute('open')">
-              <span class="btn-primary flex-1 text-center border-0">Connect</span>
-              <span class="btn-icon-box" aria-hidden="true">&gt;&gt;&gt;</span>
-            </a>
-          </div>
         </nav>
       </details>
     </div>
   </div>
+  <ScrollSpy client:idle />
 </header>
 
-<ScrollSpy client:idle />
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-nav);
+    background: color-mix(in srgb, var(--depths) 92%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(212, 167, 74, 0.18);
+  }
 
-<div class="h-[var(--header-h)]" aria-hidden="true"></div>
+  .brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    transition: transform 0.5s var(--ease-premium);
+  }
+
+  .brand-lockup:hover .brand-mark {
+    transform: scale(1.06);
+  }
+
+  .brand-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--mist);
+  }
+
+  /* Korean label leads, English sits under it at a whisper. */
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-decoration: none;
+    padding: 6px 2px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s var(--ease-premium);
+  }
+
+  .nav-ko {
+    font-size: 0.95rem;
+    color: var(--mist);
+    transition: color 0.3s var(--ease-premium);
+  }
+
+  .nav-en {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    opacity: 0.7;
+  }
+
+  .nav-link:hover .nav-ko,
+  .nav-link[data-active='true'] .nav-ko {
+    color: var(--gold);
+  }
+
+  .nav-link[data-active='true'] {
+    border-bottom-color: var(--gold);
+  }
+
+  .mobile-menu summary {
+    list-style: none;
+    color: var(--mist);
+  }
+
+  .mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-menu[open] nav {
+    position: fixed;
+    inset: var(--nav-h) 0 auto 0;
+    background: var(--depths);
+    border-bottom: 1px solid rgba(212, 167, 74, 0.18);
+    z-index: var(--z-menu);
+  }
+
+  .mobile-link {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 17px 24px;
+    text-decoration: none;
+    color: var(--mist);
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(212, 167, 74, 0.1);
+  }
+
+  .mobile-link:hover {
+    color: var(--gold);
+  }
+</style>

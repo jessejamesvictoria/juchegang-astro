@@ -1,17 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #F4F4F0;
-  --ink: #050505;
-  --muted: #6B6B66;
-  --hazard: #E61919;
-  --grid-line: #050505;
-  --font-macro: 'Archivo Black', 'Helvetica Neue', sans-serif;
-  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
-  --font-ko: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  /* 주체강 brand kit. Dark first: River Depths is the default ground. */
+  --depths: #0d1b2a;
+  --current: #1b4965;
+  --water: #142638;
+  --red: #c73032;
+  --gold: #d4a74a;
+  --mist: #e8dfd0;
+  --text-2: #a0b4c8;
+
+  /* Legacy aliases. The old names described a light, brutalist surface;
+     they now resolve to the brand palette so every existing page inherits
+     it without markup churn. --paper is the ground, --ink is what sits on
+     it, which is why they read inverted against their names. */
+  --paper: var(--depths);
+  --ink: var(--mist);
+  --muted: var(--text-2);
+  --hazard: var(--red);
+  --grid-line: rgba(212, 167, 74, 0.14);
+
+  --font-macro: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-ko: 'Noto Serif KR', 'Apple SD Gothic Neo', serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
   --nav-h: 64px;
   --barcode-h: 28px;
-  --header-h: calc(var(--nav-h) + var(--barcode-h));
+  --header-h: var(--nav-h);
   --z-grain: 60;
   --z-skip: 70;
   --z-nav: 50;
@@ -39,7 +54,7 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: 'IBM Plex Sans', 'Helvetica Neue', system-ui, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.5;
   min-height: 100dvh;
@@ -62,9 +77,9 @@ body {
 
 .font-macro {
   font-family: var(--font-macro);
-  text-transform: uppercase;
-  letter-spacing: -0.05em;
-  line-height: 0.88;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
 }
 
 .font-mono-ui {
@@ -82,17 +97,15 @@ body {
 }
 
 .text-mega {
-  font-size: clamp(4rem, 14vw, 15rem);
+  font-size: clamp(2.6rem, 7vw, 6.5rem);
   font-family: var(--font-macro);
-  text-transform: uppercase;
   letter-spacing: -0.06em;
   line-height: 0.85;
 }
 
 .text-macro {
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(1.9rem, 3.8vw, 3.4rem);
   font-family: var(--font-macro);
-  text-transform: uppercase;
   letter-spacing: -0.04em;
   line-height: 0.9;
 }
@@ -528,9 +541,11 @@ label {
   font-size: 0.55rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  border: 1px solid var(--hazard);
-  color: var(--hazard);
-  background: color-mix(in srgb, var(--hazard) 6%, var(--paper));
+  border: 0;
+  border-left: 1px solid var(--gold);
+  padding-left: 0.7rem;
+  color: var(--gold);
+  background: none;
 }
 
 .frame-nested {
