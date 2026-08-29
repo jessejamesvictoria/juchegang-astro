@@ -1,80 +1,207 @@
 ---
 import { stats } from '../../data/network'
-import { dieCast } from '../../data/manifesto'
 import SectionEyebrow from './SectionEyebrow.astro'
 ---
 
-<section class="border-b-2 border-[var(--ink)] blueprint-canvas relative overflow-hidden">
-  <div class="hero-blueprint-bg" aria-hidden="true"></div>
-  <span class="registration-mark tl" aria-hidden="true"></span>
-  <span class="registration-mark tr" aria-hidden="true"></span>
-
+<section class="hero-section">
   <div class="container-app hero-content">
-    <div class="grid lg:grid-cols-12 gap-0 border-x-2 border-[var(--ink)]">
-      <div class="lg:col-span-7 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] min-h-[calc(100dvh-var(--header-h))] flex flex-col justify-between pt-6 lg:pt-10 reveal">
-        <div>
-          <SectionEyebrow label="Strategic intelligence" labelKo="전략 인텔리전스" code="KC-01" />
-          <div class="telemetry-row mb-5">
-            <span><strong>+</strong> {dieCast.latin}</span>
-            <span>{dieCast.date}</span>
-            <span>OR-7394</span>
-          </div>
-          <h1 class="text-mega hero-headline text-[var(--ink)] text-balance">
-            Juche<span class="hazard-word">Gang</span>
-          </h1>
-          <p class="font-macro text-lg md:text-xl text-[var(--hazard)] mt-4">{dieCast.english}</p>
-          <p class="font-ko text-base text-[var(--ink)] mt-2">{dieCast.korean}</p>
-          <p class="font-ko text-sm text-[var(--muted)] mt-1">{dieCast.idiomKo}</p>
-        </div>
+    <div class="grid lg:grid-cols-12 gap-0 items-center">
+      <div class="lg:col-span-7 hero-copy reveal">
+        <SectionEyebrow label="Strategic intelligence" labelKo="전략 인텔리전스" code="KC-01" />
 
-        <div class="mt-8 lg:mt-0 pb-4">
-          <p class="text-sm text-body bilingual text-pretty">
-            One peninsula, one lineage — North or South, the kinship holds. Bridging diaspora communities with strategic intelligence, civic infrastructure, and AI-orchestrated collaboration. The decisive step is taken.
-            <span class="ko block">하나의 반도, 하나의 혈통 — 북이든 남이든 핏줄은 같습니다. 디아스포라와 전략 인텔리전스, 시민 인프라, AI 협업을 연결합니다. 주사위는 던져졌습니다.</span>
-          </p>
-          <div class="flex flex-col sm:flex-row gap-0 mt-8 w-full sm:w-fit">
-            <a href="#current" class="btn-group w-full sm:w-auto">
-              <span class="btn-primary flex-1 sm:flex-none text-center">The Current</span>
-              <span class="btn-icon-box" aria-hidden="true">&gt;&gt;&gt;</span>
-            </a>
-            <a href="#manifesto" class="btn-group w-full sm:w-auto border-t-2 sm:border-t-0 sm:-ml-[2px]">
-              <span class="btn-hazard flex-1 sm:flex-none text-center">Manifesto</span>
-              <span class="btn-icon-box" aria-hidden="true">+</span>
-            </a>
-          </div>
+        <!-- Korean leads, per the brand kit. The romanisation is secondary. -->
+        <h1 class="hero-headline font-ko">주사위는 던져졌다</h1>
+        <p class="hero-headline-en font-macro">The die is cast.</p>
+
+        <div class="hero-rule" aria-hidden="true"></div>
+
+        <p class="hero-lede font-ko">
+          하나의 반도, 하나의 혈통. 북이든 남이든 핏줄은 같습니다.
+          디아스포라와 전략 인텔리전스, 시민 인프라, AI 협업을 연결합니다.
+        </p>
+        <p class="hero-lede-en text-pretty">
+          One peninsula, one lineage. North or South, the kinship holds. We connect
+          diaspora communities with strategic intelligence, civic infrastructure and
+          orchestrated collaboration.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#current" class="btn-gold">현재 <span class="btn-sub">The Current</span></a>
+          <a href="#manifesto" class="btn-quiet">선언 <span class="btn-sub">Manifesto</span></a>
         </div>
       </div>
 
-      <div class="lg:col-span-5 relative min-h-[320px] lg:min-h-0 frame-nested reveal reveal-delay-1">
-        <div class="frame-nested-inner relative min-h-[320px] lg:min-h-full h-full halftone-img">
-          <span class="crosshair-mark tl" aria-hidden="true">+</span>
-          <span class="crosshair-mark tr" aria-hidden="true">+</span>
-          <span class="crosshair-mark bl" aria-hidden="true">+</span>
-          <span class="crosshair-mark br" aria-hidden="true">+</span>
-          <img
-            src="/images/mtpaektu.jpg"
-            alt="Mount Paektu crater lake, sacred peak of the Korean peninsula"
-            width="800"
-            height="600"
-            loading="eager"
-            fetchpriority="high"
-            class="absolute inset-0 w-full h-full"
-          />
-        </div>
+      <div class="lg:col-span-5 hero-figure reveal reveal-delay-1">
+        <img
+          src="/images/mtpaektu.jpg"
+          alt="Mount Paektu crater lake, sacred peak of the Korean peninsula"
+          width="800"
+          height="600"
+          loading="eager"
+          fetchpriority="high"
+        />
       </div>
     </div>
 
-    <div class="blueprint-grid grid-cols-2 md:grid-cols-4 border-x-2 border-b-2 border-[var(--ink)] reveal reveal-delay-2">
+    <div class="hero-stats reveal reveal-delay-2">
       {stats.map(stat => (
-        <div class="cell stat-cell">
-          <data value={stat.value} class="stat-num block text-[var(--ink)]">{stat.value}</data>
-          <p class="font-mono-ui mt-3 text-[var(--ink)]">{stat.label}</p>
-          <p class="font-ko text-xs text-[var(--muted)] mt-1">{stat.labelKo}</p>
+        <div class="stat-cell">
+          <div class="stat-value font-macro">{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
         </div>
       ))}
     </div>
   </div>
-
-  <span class="registration-mark bl" aria-hidden="true"></span>
-  <span class="registration-mark br" aria-hidden="true"></span>
 </section>
+
+<style>
+  .hero-section {
+    border-bottom: 1px solid rgba(212, 167, 74, 0.18);
+    padding-top: calc(var(--header-h) + 3rem);
+    padding-bottom: 4rem;
+  }
+
+  .hero-copy {
+    padding-right: clamp(0rem, 4vw, 4rem);
+  }
+
+  /* Korean display type needs Noto Serif KR; Playfair has no hangul. */
+  .hero-headline {
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--mist);
+    margin-top: 1.4rem;
+  }
+
+  .hero-headline-en {
+    font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--gold);
+    margin-top: 0.75rem;
+  }
+
+  .hero-rule {
+    width: 64px;
+    height: 1px;
+    background: var(--gold);
+    margin: 2.25rem 0 1.75rem;
+  }
+
+  .hero-lede {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--mist);
+    max-width: 42ch;
+    opacity: 0.92;
+  }
+
+  .hero-lede-en {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text-2);
+    max-width: 48ch;
+    margin-top: 1rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 2.5rem;
+  }
+
+  .btn-gold,
+  .btn-quiet {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 14px 26px;
+    text-decoration: none;
+    font-family: var(--font-ko);
+    font-size: 0.95rem;
+    transition: background 0.35s var(--ease-premium), color 0.35s var(--ease-premium);
+  }
+
+  .btn-gold {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .btn-gold:hover {
+    background: var(--gold);
+    color: var(--depths);
+  }
+
+  .btn-quiet {
+    border: 1px solid rgba(232, 223, 208, 0.28);
+    color: var(--mist);
+  }
+
+  .btn-quiet:hover {
+    border-color: var(--mist);
+  }
+
+  .btn-sub {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+
+  /* The previous halftone filter was tuned for a light ground and rendered
+     the photograph invisible against River Depths. A gold hairline and a
+     gentle lift is all it needs here. */
+  .hero-figure {
+    position: relative;
+    padding: clamp(1rem, 3vw, 2.5rem) 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    object-fit: cover;
+    filter: saturate(0.72) contrast(1.06) brightness(1.12);
+    border: 1px solid rgba(212, 167, 74, 0.22);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    background: rgba(212, 167, 74, 0.16);
+    border: 1px solid rgba(212, 167, 74, 0.16);
+    margin-top: 3.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .stat-cell {
+    background: var(--depths);
+    padding: 1.75rem 1.5rem;
+  }
+
+  .stat-value {
+    font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    margin-top: 0.7rem;
+  }
+</style>
