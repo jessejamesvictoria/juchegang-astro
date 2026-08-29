@@ -37,10 +37,17 @@ const ogImageUrl = `${siteUrl}${ogImage}`
   <meta name="author" content="JucheGang / JPanda Network" />
   <link rel="canonical" href={canonicalUrl} />
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <!-- Full ladder so the mark stays sharp wherever it is rendered large:
+       tabs and bookmarks take the small PNGs, retina takes 64/96, install
+       prompts and home screens take 192/512. The ICO carries 16 through 256
+       for Windows and pinned tabs. -->
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128 256x256" />
   <link rel="icon" href="/brand/favicon-32.png" type="image/png" sizes="32x32" />
-  <link rel="icon" href="/brand/icon-192.png" type="image/png" sizes="192x192" />
-  <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+  <link rel="icon" href="/brand/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="/brand/favicon-96.png" type="image/png" sizes="96x96" />
+  <link rel="icon" href="/brand/favicon-192.png" type="image/png" sizes="192x192" />
+  <link rel="icon" href="/brand/favicon-512.png" type="image/png" sizes="512x512" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
   <meta property="og:site_name" content="JucheGang" />
