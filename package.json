@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "qr": "python3 scripts/generate-payment-qr.py"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",

@@ -1,0 +1,21 @@
+{
+  "_comment": "Single source of truth for every payment surface on this site. Read by src/data/support.ts (web) and scripts/generate-payment-qr.py (QR codes). Change recipientAddress here and re-run `npm run qr` - nothing else needs editing. recipientAddress is a Shakepay custodial deposit address on Base; confirm it still matches the Base tab in the Shakepay app before each redeploy.",
+  "recipientAddress": "0x0e392132755757926F7965965A86B88880E90bca",
+  "network": {
+    "name": "Base",
+    "chainId": 8453,
+    "explorer": "https://basescan.org"
+  },
+  "asset": {
+    "symbol": "USDC",
+    "contract": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "decimals": 6
+  },
+  "presetAmounts": [
+    5,
+    25,
+    100
+  ],
+  "x402Facilitator": "https://x402-facilitator.onrender.com",
+  "custody": "shakepay"
+}
