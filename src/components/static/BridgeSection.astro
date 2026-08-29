@@ -2,12 +2,12 @@
 import SectionEyebrow from './SectionEyebrow.astro'
 ---
 
-<section id="bridge" class="border-b-2 border-[var(--ink)]">
+<section id="bridge" class="border-b border-[var(--rule)]">
   <div class="hazard-stripe" aria-hidden="true"></div>
   <div class="container-app">
-    <div class="grid lg:grid-cols-12 border-x-2 border-[var(--ink)]">
+    <div class="grid lg:grid-cols-12 border-x border-[var(--rule)]">
       <!-- Left: Context -->
-      <div class="lg:col-span-4 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal flex flex-col justify-between">
+      <div class="lg:col-span-4 cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal flex flex-col justify-between">
         <div>
           <SectionEyebrow label="Uniting pillar" labelKo="통일의 기둥" code="YSS-01" />
           <h2 class="text-macro frame-bracket text-balance">The Admiral</h2>
@@ -21,12 +21,12 @@ import SectionEyebrow from './SectionEyebrow.astro'
         </div>
       </div>
 
-      <!-- Center: Primary portrait — bust as unifying pillar -->
-      <div class="lg:col-span-5 relative min-h-[380px] border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal reveal-delay-1 overflow-hidden">
+      <!-- Center: Primary portrait, bust as unifying pillar -->
+      <div class="lg:col-span-5 relative min-h-[380px] border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal reveal-delay-1 overflow-hidden">
         <figure class="absolute inset-0">
           <img
             src="/images/admiral/yi-sun-sin-bust.jpg"
-            alt="Bronze bust of Admiral Yi Sun-sin — uniting pillar claimed by both sides of the peninsula"
+            alt="Bronze bust of Admiral Yi Sun-sin, uniting pillar claimed by both sides of the peninsula"
             width="1200"
             height="1400"
             loading="lazy"
@@ -34,11 +34,11 @@ import SectionEyebrow from './SectionEyebrow.astro'
             style="filter: contrast(1.18) grayscale(0.28);"
           />
           <!-- refined print frame treatment (no crosshair targets) -->
-          <div class="absolute inset-0 border-2 border-[var(--ink)] pointer-events-none"></div>
-          <div class="absolute inset-[3px] border border-[var(--ink)]/40 pointer-events-none"></div>
+          <div class="absolute inset-0 border border-[var(--rule)] pointer-events-none"></div>
+          <div class="absolute inset-[3px] border border-[var(--rule)]/40 pointer-events-none"></div>
         </figure>
 
-        <div class="absolute bottom-0 left-0 right-0 bg-[var(--paper)]/95 border-t-2 border-[var(--ink)] p-4 sm:p-5 text-[0.65rem] font-mono-ui tracking-[0.08em] flex flex-wrap gap-x-4 gap-y-1 text-[var(--muted)]">
+        <div class="absolute bottom-0 left-0 right-0 bg-[var(--paper)]/95 border-t border-[var(--rule)] p-4 sm:p-5 text-[0.65rem] font-mono-ui tracking-[0.08em] flex flex-wrap gap-x-4 gap-y-1 text-[var(--muted)]">
           <span>1545-1598</span>
           <span class="text-[var(--hazard)]">23 · 0</span>
           <span>MYEONGNYANG 13 v 330</span>
@@ -48,7 +48,7 @@ import SectionEyebrow from './SectionEyebrow.astro'
 
       <!-- Right: Four masts / pillars of claim -->
       <div class="lg:col-span-3 blueprint-grid grid-cols-1 reveal reveal-delay-2 text-[0.8rem]">
-        <article class="cell border-b border-[var(--ink)]/60">
+        <article class="cell border-b border-[var(--rule)]/60">
           <div class="flex items-baseline justify-between mb-1.5">
             <samp class="font-mono-ui text-[var(--hazard)]">KOREA</samp>
             <span class="font-mono-ui text-[10px] text-[var(--muted)]">BOTH</span>
@@ -58,7 +58,7 @@ import SectionEyebrow from './SectionEyebrow.astro'
           <p class="text-[11px] leading-snug">Five thousand years. One language. One lineage. North and south of the line.</p>
         </article>
 
-        <article class="cell border-b border-[var(--ink)]/60">
+        <article class="cell border-b border-[var(--rule)]/60">
           <div class="flex items-baseline justify-between mb-1.5">
             <samp class="font-mono-ui text-[var(--hazard)]">CANADA</samp>
             <span class="font-mono-ui text-[10px] text-[var(--muted)]">KC-01</span>
@@ -81,16 +81,16 @@ import SectionEyebrow from './SectionEyebrow.astro'
     </div>
 
     <!-- Kintsugi unity strip + bridge link (award craft detail row) -->
-    <div class="grid md:grid-cols-2 border-x-2 border-t-2 border-[var(--ink)]">
-      <div class="cell flex flex-col sm:flex-row gap-5 items-center border-b md:border-b-0 md:border-r-2 border-[var(--ink)]">
+    <div class="grid md:grid-cols-2 border-x border-t border-[var(--rule)]">
+      <div class="cell flex flex-col sm:flex-row gap-5 items-center border-b md:border-b-0 md:border-r border-[var(--rule)]">
         <div class="shrink-0 w-full sm:w-40">
           <img 
             src="/images/admiral/kintsugi-unity.jpg" 
-            alt="Kintsugi bowl — the mended vessel, metaphor for a peninsula repaired yet stronger in its seams"
+            alt="Kintsugi bowl, the mended vessel, metaphor for a peninsula repaired yet stronger in its seams"
             width="640" 
             height="480"
             loading="lazy"
-            class="w-full h-auto border border-[var(--ink)] object-cover"
+            class="w-full h-auto border border-[var(--rule)] object-cover"
           />
         </div>
         <div class="text-[0.8rem]">
@@ -104,11 +104,11 @@ import SectionEyebrow from './SectionEyebrow.astro'
         <div class="shrink-0 w-full sm:w-40">
           <img 
             src="/images/admiral/johnson-street-bridge.jpg" 
-            alt="Johnson Street Bridge, Victoria BC — the Canadian anchor of the Pacific corridor"
+            alt="Johnson Street Bridge, Victoria BC, the Canadian anchor of the Pacific corridor"
             width="640" 
             height="360"
             loading="lazy"
-            class="w-full h-auto border border-[var(--ink)] object-cover"
+            class="w-full h-auto border border-[var(--rule)] object-cover"
           />
         </div>
         <div class="text-[0.8rem]">

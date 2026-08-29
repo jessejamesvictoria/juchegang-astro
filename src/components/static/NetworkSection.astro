@@ -6,11 +6,11 @@ const coreSites = networkSites.filter(s => s.tag === 'Core')
 const otherSites = networkSites.filter(s => s.tag !== 'Core')
 ---
 
-<section id="network" class="border-b-2 border-[var(--ink)]">
+<section id="network" class="border-b border-[var(--rule)]">
   <div class="container-app">
-    <div class="border-x-2 border-[var(--ink)]">
-      <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)]">
-        <div class="lg:col-span-8 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+    <div class="border-x border-[var(--rule)]">
+      <div class="grid lg:grid-cols-12 border-b border-[var(--rule)]">
+        <div class="lg:col-span-8 cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
           <SectionEyebrow label="JPanda Network" labelKo="제이판다" code="NET-13" />
           <h2 class="text-macro frame-angle">Thirteen properties</h2>
           <p class="font-ko text-sm text-[var(--muted)] mt-3">제이판다 네트워크</p>
@@ -44,7 +44,7 @@ const otherSites = networkSites.filter(s => s.tag !== 'Core')
         ))}
       </div>
 
-      <div class="compartment-header border-t-2 border-[var(--ink)]">
+      <div class="compartment-header border-t border-[var(--rule)]">
         <samp class="font-mono-ui text-[var(--hazard)]">Extended network</samp>
       </div>
       <div class="blueprint-grid grid-cols-1 sm:grid-cols-2 reveal reveal-delay-3">

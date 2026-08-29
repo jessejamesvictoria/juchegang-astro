@@ -1,30 +1,36 @@
 {
-  "name": "JucheGang",
-  "short_name": "JucheGang",
-  "description": "The die is cast. Unity and AI for Korea and Canada.",
+  "name": "주체강 JucheGang",
+  "short_name": "주체강",
+  "description": "주사위는 던져졌다. 하나의 민족. The die is cast. One people, regardless of the line.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F4F4F0",
-  "theme_color": "#050505",
-  "lang": "en-CA",
+  "background_color": "#0d1b2a",
+  "theme_color": "#0d1b2a",
+  "lang": "ko-KR",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/brand/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png",
       "purpose": "any"
     },
     {
       "src": "/brand/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/brand/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

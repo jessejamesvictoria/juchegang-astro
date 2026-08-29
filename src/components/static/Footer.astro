@@ -6,12 +6,12 @@ const year = new Date().getFullYear()
 const links = networkSites.slice(0, 8)
 ---
 
-<footer class="border-t-2 border-[var(--ink)]">
+<footer class="border-t border-[var(--rule)]">
   <div class="hazard-stripe" aria-hidden="true"></div>
   <div class="barcode-strip" aria-hidden="true"></div>
   <div class="container-app">
-    <div class="grid md:grid-cols-12 border-x-2 border-[var(--ink)]">
-      <div class="md:col-span-4 cell border-b-2 md:border-b-0 md:border-r-2 border-[var(--ink)]">
+    <div class="grid md:grid-cols-12 border-x border-[var(--rule)]">
+      <div class="md:col-span-4 cell border-b md:border-b-0 md:border-r border-[var(--rule)]">
         <div class="flex items-center gap-3 mb-4">
           <img src="/brand/mark.svg" alt="" width="28" height="28" />
           <span class="font-macro text-sm">JucheGang</span>
@@ -23,18 +23,18 @@ const links = networkSites.slice(0, 8)
         <p class="font-ko text-xs text-[var(--muted)] mt-2">주사위는 던져졌다</p>
         <p class="font-ko text-xs text-[var(--muted)] mt-3">어느 쪽에 서 있든 하나의 민족 · 한국과 캐나다</p>
 
-        <!-- Founder credit with headshot — understated, archival, on-brand -->
-        <div class="mt-4 flex items-center gap-3 border-t border-[var(--ink)]/40 pt-3">
+        <!-- Founder credit with headshot, understated, archival, on-brand -->
+        <div class="mt-4 flex items-center gap-3 border-t border-[var(--rule)]/40 pt-3">
           <div class="relative shrink-0">
             <img 
               src="/images/gang.jpg" 
-              alt="Jesse James — JPanda" 
+              alt="Jesse James, JPanda" 
               width="48" 
               height="48" 
               loading="lazy"
-              class="w-8 h-8 sm:w-9 sm:h-9 border border-[var(--ink)] object-cover"
+              class="w-8 h-8 sm:w-9 sm:h-9 border border-[var(--rule)] object-cover"
             />
-            <div class="absolute inset-0 border border-[var(--ink)]/30 pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute inset-0 border border-[var(--rule)]/30 pointer-events-none" aria-hidden="true"></div>
           </div>
           <div>
             <div class="font-mono-ui text-[0.6rem] tracking-[0.06em]">Jesse James</div>
@@ -50,7 +50,7 @@ const links = networkSites.slice(0, 8)
         </div>
       </div>
 
-      <div class="md:col-span-4 cell border-b-2 md:border-b-0 md:border-r-2 border-[var(--ink)]">
+      <div class="md:col-span-4 cell border-b md:border-b-0 md:border-r border-[var(--rule)]">
         <p class="font-mono-ui text-[var(--hazard)] mb-4">[ Network ]</p>
         <ul class="grid grid-cols-2 gap-x-4 gap-y-2">
           {links.map(site => (
@@ -76,7 +76,7 @@ const links = networkSites.slice(0, 8)
 
     <FooterHonor />
 
-    <div class="border-x-2 border-b-2 border-[var(--ink)] cell flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <div class="border-x border-b border-[var(--rule)] cell flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
       <p class="font-mono-ui text-[var(--muted)] text-[0.6rem]">&copy; {year} JucheGang / JPanda Network</p>
       <nav aria-label="Legal" class="flex flex-wrap gap-4">
         <a href="/support" class="link-text">Support</a>

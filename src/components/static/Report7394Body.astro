@@ -9,10 +9,10 @@ import {
 
 <article class="report-7394">
   <!-- Header -->
-  <section class="border-b-2 border-[var(--ink)] blueprint-canvas relative">
+  <section class="border-b border-[var(--rule)] blueprint-canvas relative">
     <div class="hazard-stripe" aria-hidden="true"></div>
     <div class="container-app">
-      <div class="border-x-2 border-[var(--ink)] cell reveal relative">
+      <div class="border-x border-[var(--rule)] cell reveal relative">
         <span class="registration-mark tl" aria-hidden="true"></span>
         <span class="registration-mark br" aria-hidden="true"></span>
 
@@ -26,7 +26,7 @@ import {
         <p class="text-sm text-body text-pretty mt-6 max-w-3xl">{report7394Meta.subtitle}</p>
         <p class="font-ko text-sm text-[var(--muted)] mt-2">{report7394Meta.subtitleKo}</p>
 
-        <div class="flex flex-wrap gap-x-6 gap-y-2 mt-8 pt-6 border-t-2 border-[var(--ink)]">
+        <div class="flex flex-wrap gap-x-6 gap-y-2 mt-8 pt-6 border-t border-[var(--rule)]">
           <span class="font-mono-ui text-[0.6rem]">By {report7394Meta.author}</span>
           <span class="font-mono-ui text-[0.6rem] text-[var(--muted)]">·</span>
           <span class="font-mono-ui text-[0.6rem]">{report7394Meta.publisher}</span>
@@ -38,9 +38,9 @@ import {
   </section>
 
   <!-- Table of contents -->
-  <section class="border-b-2 border-[var(--ink)]">
+  <section class="border-b border-[var(--rule)]">
     <div class="container-app">
-      <div class="border-x-2 border-[var(--ink)]">
+      <div class="border-x border-[var(--rule)]">
         <div class="compartment-header">
           <samp class="font-mono-ui text-[var(--hazard)]">Table of Contents · 목차</samp>
         </div>
@@ -58,9 +58,9 @@ import {
   </section>
 
   <!-- Introduction -->
-  <section id="introduction" class="border-b-2 border-[var(--ink)]">
+  <section id="introduction" class="border-b border-[var(--rule)]">
     <div class="container-app">
-      <div class="border-x-2 border-[var(--ink)]">
+      <div class="border-x border-[var(--rule)]">
         <div class="compartment-header">
           <samp class="font-mono-ui text-[var(--hazard)]">Preface · 서문</samp>
         </div>
@@ -77,17 +77,17 @@ import {
 
   <!-- Sections -->
   {report7394Sections.map(section => (
-    <section id={section.id} class="border-b-2 border-[var(--ink)]">
+    <section id={section.id} class="border-b border-[var(--rule)]">
       <div class="container-app">
-        <div class="border-x-2 border-[var(--ink)]">
+        <div class="border-x border-[var(--rule)]">
           <div class="compartment-header">
             <samp class="font-mono-ui text-[var(--hazard)]">
               Section {section.roman} · {section.titleKo}
             </samp>
           </div>
 
-          <div class="grid lg:grid-cols-12 border-b-2 border-[var(--ink)]">
-            <div class="lg:col-span-4 cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+          <div class="grid lg:grid-cols-12 border-b border-[var(--rule)]">
+            <div class="lg:col-span-4 cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
               <h2 class="text-section frame-bracket">{section.title}</h2>
               <p class="font-ko text-sm text-[var(--muted)] mt-2">{section.titleKo}</p>
               {section.highlight && (
@@ -107,8 +107,8 @@ import {
           </div>
 
           {section.table && (
-            <div class="border-b-2 border-[var(--ink)] reveal reveal-delay-2">
-              <div class="compartment-header border-t-2 border-[var(--ink)]">
+            <div class="border-b border-[var(--rule)] reveal reveal-delay-2">
+              <div class="compartment-header border-t border-[var(--rule)]">
                 <samp class="font-mono-ui text-[var(--hazard)]">Data table · {section.roman}</samp>
               </div>
               <div class="overflow-x-auto">
@@ -152,16 +152,16 @@ import {
   ))}
 
   <!-- Conclusion -->
-  <section class="border-b-2 border-[var(--ink)]">
+  <section class="border-b border-[var(--rule)]">
     <div class="hazard-stripe" aria-hidden="true"></div>
     <div class="container-app">
-      <div class="border-x-2 border-[var(--ink)] cell reveal text-center">
+      <div class="border-x border-[var(--rule)] cell reveal text-center">
         <p class="font-mono-ui text-[var(--hazard)] text-lg">{report7394Conclusion.closing}</p>
         <p class="font-mono-ui text-[var(--muted)] text-[0.65rem] mt-4">{report7394Conclusion.publisher}</p>
         <p class="font-ko text-base text-[var(--ink)] mt-8 font-medium">{report7394Conclusion.unityKo}</p>
-        <div class="flex flex-wrap justify-center gap-0 mt-10 border-2 border-[var(--ink)] w-fit mx-auto">
+        <div class="flex flex-wrap justify-center gap-0 mt-10 border border-[var(--rule)] w-fit mx-auto">
           <a href="/the-current" class="btn-primary border-0">The Current &gt;&gt;&gt;</a>
-          <a href="/" class="btn-hazard border-0 border-l-2 border-[var(--ink)]">Home</a>
+          <a href="/" class="btn-hazard border-0 border-l border-[var(--rule)]">Home</a>
         </div>
       </div>
     </div>

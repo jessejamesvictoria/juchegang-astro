@@ -28,21 +28,21 @@ const variants = [
 
 <Base
   title="Support"
-  description="Direct support for JucheGang research and briefings. USDC on Base, wallet to wallet — no platform, no processor, no percentage."
+  description="Direct support for JucheGang research and briefings. USDC on Base, wallet to wallet, no platform, no processor, no percentage."
 >
   <a href="#main-content" class="sr-only">Skip to content</a>
   <Header />
 
   <main id="main-content">
-    <section class="border-b-2 border-[var(--ink)]">
+    <section class="border-b border-[var(--rule)]">
       <div class="container-app">
-        <div class="border-x-2 border-[var(--ink)] cell reveal visible">
+        <div class="border-x border-[var(--rule)] cell reveal visible">
           <SectionEyebrow label="Support" labelKo="후원" code="SUP-01" />
           <h1 class="text-macro mb-6 text-balance max-w-4xl">Direct support</h1>
           <p class="text-body text-pretty">
             No platform, no processor, no percentage. A wallet address and a code that
             points at it. If the work is worth something to you, the amount is yours
-            to decide — and nothing sits between the two of us to take a cut, hold the
+            to decide, and nothing sits between the two of us to take a cut, hold the
             funds, or reverse them later.
           </p>
         </div>
@@ -50,16 +50,16 @@ const variants = [
     </section>
 
     {isConfigured ? (
-      <section class="border-b-2 border-[var(--ink)]">
+      <section class="border-b border-[var(--rule)]">
         <div class="container-app">
-          <div class="grid lg:grid-cols-2 border-x-2 border-[var(--ink)]">
+          <div class="grid lg:grid-cols-2 border-x border-[var(--rule)]">
 
             <!-- Scan panel -->
-            <div class="cell border-b-2 lg:border-b-0 lg:border-r-2 border-[var(--ink)] reveal">
+            <div class="cell border-b lg:border-b-0 lg:border-r border-[var(--rule)] reveal">
               <SectionEyebrow label="Scan to pay" labelKo="스캔" code="SUP-02" />
 
               <div
-                class="flex flex-wrap gap-0 border-2 border-[var(--ink)] mb-6"
+                class="flex flex-wrap gap-0 border border-[var(--rule)] mb-6"
                 role="group"
                 aria-label="Payment amount"
                 id="amount-group"
@@ -67,7 +67,7 @@ const variants = [
                 {variants.map((variant, index) => (
                   <button
                     type="button"
-                    class="qr-amount flex-1 min-w-[5rem] font-mono-ui px-3 py-3 border-r-2 border-[var(--ink)] last:border-r-0 transition-colors duration-250"
+                    class="qr-amount flex-1 min-w-[5rem] font-mono-ui px-3 py-3 border-r border-[var(--rule)] last:border-r-0 transition-colors duration-250"
                     data-slug={variant.slug}
                     aria-pressed={index === 0 ? 'true' : 'false'}
                   >
@@ -76,7 +76,7 @@ const variants = [
                 ))}
               </div>
 
-              <figure class="border-2 border-[var(--ink)] p-4 sm:p-6 bg-[var(--paper)]">
+              <figure class="border border-[var(--rule)] p-4 sm:p-6 bg-[var(--paper)]">
                 <div class="mx-auto w-full max-w-[19rem]">
                   {variants.map((variant, index) => (
                     <img
@@ -100,7 +100,7 @@ const variants = [
                 </figcaption>
               </figure>
 
-              <div class="mt-6 border-2 border-[var(--ink)]">
+              <div class="mt-6 border border-[var(--rule)]">
                 <p class="font-mono-ui text-[var(--muted)] px-4 pt-3">Address</p>
                 <p
                   class="px-4 pb-3 font-mono text-[0.7rem] sm:text-[0.78rem] break-all leading-relaxed select-all"
@@ -109,7 +109,7 @@ const variants = [
                 <button
                   type="button"
                   id="copy-address"
-                  class="btn-primary w-full border-0 border-t-2 border-[var(--ink)]"
+                  class="btn-primary w-full border-0 border-t border-[var(--rule)]"
                   data-address={recipientAddress}
                 >
                   <span data-copy-label>Copy address</span>
@@ -131,24 +131,24 @@ const variants = [
             <div class="cell reveal reveal-delay-1">
               <SectionEyebrow label="Details" labelKo="세부" code="SUP-03" />
 
-              <dl class="border-2 border-[var(--ink)] mb-8">
-                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+              <dl class="border border-[var(--rule)] mb-8">
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b border-[var(--rule)]">
                   <dt class="font-mono-ui text-[var(--muted)]">Network</dt>
                   <dd class="font-mono-ui text-[0.65rem]">{network.name} · chain {network.chainId}</dd>
                 </div>
-                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b border-[var(--rule)]">
                   <dt class="font-mono-ui text-[var(--muted)]">Asset</dt>
                   <dd class="font-mono-ui text-[0.65rem]">{asset.symbol} · 1 {asset.symbol} = 1 USD</dd>
                 </div>
-                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b border-[var(--rule)]">
                   <dt class="font-mono-ui text-[var(--muted)]">Fee</dt>
                   <dd class="font-mono-ui text-[0.65rem]">Under one cent of network gas</dd>
                 </div>
-                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b border-[var(--rule)]">
                   <dt class="font-mono-ui text-[var(--muted)]">Settles</dt>
                   <dd class="font-mono-ui text-[0.65rem]">20 confirmations · about one minute</dd>
                 </div>
-                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b-2 border-[var(--ink)]">
+                <div class="grid grid-cols-[auto_1fr] gap-4 px-4 py-3 border-b border-[var(--rule)]">
                   <dt class="font-mono-ui text-[var(--muted)]">Minimum</dt>
                   <dd class="font-mono-ui text-[0.65rem]">0.01 {asset.symbol}</dd>
                 </div>
@@ -176,7 +176,7 @@ const variants = [
               <h2 class="text-section frame-angle mb-4">Sending it</h2>
               <ol class="text-body text-sm space-y-2 text-pretty list-none">
                 <li><span class="font-mono-ui text-[var(--hazard)] mr-2">01</span>Pick an amount, or leave it open.</li>
-                <li><span class="font-mono-ui text-[var(--hazard)] mr-2">02</span>Scan the code with any wallet — Coinbase, Rainbow, MetaMask, Trust.</li>
+                <li><span class="font-mono-ui text-[var(--hazard)] mr-2">02</span>Scan the code with any wallet, Coinbase, Rainbow, MetaMask, Trust.</li>
                 <li><span class="font-mono-ui text-[var(--hazard)] mr-2">03</span>Confirm. The code already carries the network and the token, so there is nothing to select by hand.</li>
               </ol>
 
@@ -191,9 +191,9 @@ const variants = [
       </section>
 
       <!-- x402 -->
-      <section class="border-b-2 border-[var(--ink)]">
+      <section class="border-b border-[var(--rule)]">
         <div class="container-app">
-          <div class="border-x-2 border-[var(--ink)] cell reveal">
+          <div class="border-x border-[var(--rule)] cell reveal">
             <SectionEyebrow label="For machines" labelKo="기계" code="SUP-04" />
             <h2 class="text-section frame-angle mb-4">Machine-payable</h2>
             <p class="text-body text-pretty mb-6">
@@ -201,10 +201,10 @@ const variants = [
               {' '}<a href="https://www.x402.org" target="_blank" rel="noopener noreferrer" class="link-text">x402</a>,
               the open standard for charging over HTTP with stablecoins. An
               autonomous agent that wants to pay for something here does not need an
-              account, a card, or a human in the loop — it reads the 402 response and
+              account, a card, or a human in the loop, it reads the 402 response and
               settles on-chain.
             </p>
-            <pre class="border-2 border-[var(--ink)] p-4 overflow-x-auto text-[0.7rem] leading-relaxed"><code>curl -X POST {x402Facilitator}/support \
+            <pre class="border border-[var(--rule)] p-4 overflow-x-auto text-[0.7rem] leading-relaxed"><code>curl -X POST {x402Facilitator}/support \
   -H 'Content-Type: application/json' \
   -d '&#123;"amount": 5, "note": "briefings"&#125;'</code></pre>
             <p class="font-mono-ui text-[var(--muted)] mt-4 leading-relaxed">
@@ -215,10 +215,10 @@ const variants = [
         </div>
       </section>
     ) : (
-      <section class="border-b-2 border-[var(--ink)]">
+      <section class="border-b border-[var(--rule)]">
         <div class="container-app">
-          <div class="border-x-2 border-[var(--ink)] cell">
-            <div class="border-2 border-[var(--hazard)] cell">
+          <div class="border-x border-[var(--rule)] cell">
+            <div class="border border-[var(--hazard)] cell">
               <samp class="font-mono-ui text-[var(--hazard)] block mb-3">Not configured</samp>
               <p class="text-body text-sm text-pretty">
                 No payment address has been set. Add one to
@@ -312,7 +312,7 @@ const variants = [
         // browsers. The address is select-all above, so say so rather than
         // failing silently.
         if (status) {
-          status.textContent = 'Could not copy automatically — tap the address to select it.'
+          status.textContent = 'Could not copy automatically, tap the address to select it.'
         }
       }
     })

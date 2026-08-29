@@ -19,6 +19,7 @@
   --muted: var(--text-2);
   --hazard: var(--red);
   --grid-line: rgba(212, 167, 74, 0.14);
+  --rule: rgba(212, 167, 74, 0.22);
 
   --font-macro: 'Playfair Display', Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -129,7 +130,7 @@ body {
 .blueprint-grid {
   display: grid;
   gap: 1px;
-  background: var(--ink);
+  background: var(--rule);
 }
 
 .blueprint-grid > * {
@@ -402,8 +403,9 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.2) grayscale(1);
-  mix-blend-mode: multiply;
+  /* The previous contrast+grayscale+multiply was tuned for the retired paper
+     ground; on River Depths it renders photographs nearly black. */
+  filter: saturate(0.75) contrast(1.05) brightness(1.1);
 }
 
 .halftone-img img.halftone-contain {
@@ -549,9 +551,9 @@ label {
 }
 
 .frame-nested {
-  border: 2px solid var(--ink);
+  border: 1px solid var(--rule);
   padding: 3px;
-  background: var(--ink);
+  background: transparent;
 }
 
 .frame-nested-inner {
@@ -942,7 +944,7 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
   margin-top: 0;
 }
 
-/* Current section — prevent laptop wrapping in stat panels */
+/* Current section: prevent laptop wrapping in stat panels */
 .current-panel-body > * {
   min-width: 0;
 }
@@ -1027,7 +1029,7 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
   background: var(--paper);
 }
 
-/* Award-level fluid portrait treatment — scales beautifully from 320px phones to large desktop */
+/* Award-level fluid portrait treatment: scales beautifully from 320px phones to large desktop */
 .honor-portrait {
   position: relative;
   width: clamp(4.25rem, 13.5vw, 6.75rem);
@@ -1123,4 +1125,17 @@ details.mobile-menu[open] nav li:nth-child(8) { animation-delay: 0.32s; }
     font-size: 0.46rem;
     padding: 0.1rem 0.32rem;
   }
+}
+
+/* ── Retired brutalist decoration ──────────────────────────────────────
+   These carried no information and are held at zero rather than deleted so
+   the markup that still references them does not break mid-migration. */
+.hazard-stripe,
+.barcode-strip {
+  display: none;
+}
+
+.crosshair-mark,
+.registration-mark {
+  display: none;
 }
