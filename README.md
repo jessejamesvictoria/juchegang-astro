@@ -1,3 +1,6 @@
+> ## Legacy repository
+> **Status (14 October 2026): not maintained, marked for deletion.** A two-commit experiment (May 2026) porting the 48 Laws page from Next.js to Astro. It was never the canonical home of that content, which remains in `jdevop33/juchegang` pending its move to [juchegang.ca](https://juchegang.ca). `API_INTEGRATIONS.md` (a Senior Living Trust Score API guide) is unrelated to this site and belongs with the Cherish properties. Nothing here should be built on.
+
 # Astro Starter Kit: Minimal
 
 ```sh
