@@ -1,5 +1,9 @@
-> ## Legacy repository
-> **Status (14 October 2026): not maintained, marked for deletion.** A two-commit experiment (May 2026) porting the 48 Laws page from Next.js to Astro. It was never the canonical home of that content, which remains in `jdevop33/juchegang` pending its move to [juchegang.ca](https://juchegang.ca). `API_INTEGRATIONS.md` (a Senior Living Trust Score API guide) is unrelated to this site and belongs with the Cherish properties. Nothing here should be built on.
+> ## Live site: kim.juche.org
+> **Status (17 October 2026): live. Do not delete or archive this repository.** It is the source of https://kim.juche.org (주체강 · Strategic Intelligence: the home page, The Current, Arithmetic, Report 7394-K and the Support page). Vercel builds `main` to production, so every merge to `main` redeploys the site.
+>
+> **Correction.** A banner added on 14 October 2026 called this repository "a two-commit experiment (May 2026)", "not maintained, marked for deletion". That was wrong. The repository has 39 commits from December 2025 to October 2026. On 17 October 2026 a build of `main` produced the same compiled assets and the same page content as the live site. The only differences were the analytics settings Vercel adds during deployment.
+>
+> `API_INTEGRATIONS.md` (a Senior Living Trust Score API guide) is unrelated to this site and belongs with the Cherish properties.
 
 # Astro Starter Kit: Minimal
 
