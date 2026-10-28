@@ -4,6 +4,8 @@
 > **Correction.** A banner added on 14 October 2026 called this repository "a two-commit experiment (May 2026)", "not maintained, marked for deletion". That was wrong. The repository has 39 commits from December 2025 to October 2026. On 17 October 2026 a build of `main` produced the same compiled assets and the same page content as the live site. The only differences were the analytics settings Vercel adds during deployment.
 >
 > `API_INTEGRATIONS.md` (a Senior Living Trust Score API guide) is unrelated to this site and belongs with the Cherish properties.
+>
+> This is one of several JucheGang repositories with similar names. See [SITES.md](https://github.com/jdevop33/juchegang/blob/main/SITES.md) for which repository builds which site. The fork [cherishwins/juchegang-astro](https://github.com/cherishwins/juchegang-astro) is stale; do not work there.
 
 # Astro Starter Kit: Minimal
 
