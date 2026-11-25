@@ -1,2 +1,0 @@
-segno>=1.6
-pycryptodome>=3.20
